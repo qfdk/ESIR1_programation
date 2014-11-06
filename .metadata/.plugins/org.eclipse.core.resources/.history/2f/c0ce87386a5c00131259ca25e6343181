@@ -1,0 +1,140 @@
+/*______________________________*/
+/**
+ * 
+ */
+package vue;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import modele.MonModeleDeTable;
+import modele.NomPrenomEditor;
+import modele.NomPrenomRenderer;
+
+/**
+ * @author qfdk
+ * Cree le 2013年12月1日
+ */
+public class Mafenetre extends JFrame implements ActionListener,KeyListener
+{
+
+	JTable tbElements;
+	JTextField esNom;
+	JTextField esPrenom;
+	JButton bpAjouter;
+	
+	public Mafenetre(String titre)
+	{
+		super(titre);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		ceerComposant();
+		placement();
+	}
+	/**
+	 * 
+	 */
+	private void placement()
+	{
+		JPanel panel_bp=new JPanel(new GridLayout(2, 1));
+		panel_bp.add(esNom);
+		panel_bp.add(esPrenom);
+		JPanel panel_haut=new JPanel(new FlowLayout());
+		panel_haut.add(panel_bp);
+		panel_haut.add(bpAjouter);
+		JScrollPane jsp=new JScrollPane();
+		jsp.getViewport().setView(tbElements);
+		//jsp.add(tbElements);
+		this.getContentPane().setLayout(new BorderLayout());
+		this.getContentPane().add(panel_haut,BorderLayout.NORTH);
+		this.getContentPane().add(jsp,BorderLayout.CENTER);
+		pack();
+	}
+	/**
+	 * 
+	 */
+	private void ceerComposant()
+	{
+		tbElements=new JTable(MonModeleDeTable.getinstance());
+		esNom=new JTextField(10);
+		esPrenom=new JTextField(10);
+		bpAjouter=new JButton("ajouter");
+		//addKeyListener(this);
+		bpAjouter.addActionListener(this);
+		esPrenom.addKeyListener(this);
+		tbElements.setModel(MonModeleDeTable.getinstance());
+//		tbElements.getColumnModel().getColumn(0).setCellRenderer(new NomPrenomRenderer());
+//		tbElements.getColumnModel().getColumn(1).setCellRenderer(new NomPrenomRenderer());
+//		tbElements.getColumnModel().getColumn(2).setCellRenderer(new NomPrenomRenderer());
+		tbElements.setDefaultRenderer(tbElements.getColumnClass(0), new NomPrenomRenderer());
+		tbElements.getColumnModel().getColumn(2).setCellEditor(new NomPrenomEditor());
+	}
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==bpAjouter)
+		{
+			MonModeleDeTable.getinstance().addElement(esNom.getText(), esPrenom.getText());
+			esNom.setText("");
+			esPrenom.setText("");
+			esNom.grabFocus();
+		}
+	}
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyTyped(KeyEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyPressed(KeyEvent e)
+	{
+		if(e.getKeyCode()==KeyEvent.KEY_PRESSED)
+		{
+			MonModeleDeTable.getinstance().addElement(esNom.getText(), esPrenom.getText());
+			esNom.setText("");
+			esPrenom.setText("");
+			esNom.grabFocus();
+		}
+	}
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
+	@Override
+	public void keyReleased(KeyEvent e)
+	{
+		if(e.getKeyCode()==KeyEvent.VK_ENTER)
+		{
+			MonModeleDeTable.getinstance().addElement(esNom.getText(), esPrenom.getText());
+			esNom.setText("");
+			esPrenom.setText("");
+			esNom.grabFocus();
+		}		
+	}
+
+	
+}
+
+/*______________________________*/
+/*___________FIN_______________*/
+/*______________________________*/

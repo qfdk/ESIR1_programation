@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;presentation.a.java&apos; to &apos;MaFenetre.java&apos;&#x0A;- Original project: &apos;Jtree&apos;&#x0A;- Original element: &apos;presentation.a.java&apos;&#x0A;- Renamed element: &apos;presentation.MaFenetre.java&apos;" description="Rename compilation unit &apos;a.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;presentation{a.java" name="MaFenetre.java" references="false" stamp="1389210498856" version="1.0"/>
+</session>

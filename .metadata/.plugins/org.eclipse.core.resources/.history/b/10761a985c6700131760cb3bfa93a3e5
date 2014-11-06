@@ -1,0 +1,31 @@
+/*______________________________*/
+/**
+ * 
+ */
+package vue;
+
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+
+/**
+ * @author qfdk
+ * Cree le 2013年12月17日
+ */
+public class Mafenetre extends JFrame
+{
+	public Mafenetre() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JSplitPane splitPane = new JSplitPane();
+		getContentPane().add(splitPane);
+		pack();
+	}
+
+}
+
+/*______________________________*/
+/*___________FIN_______________*/
+/*______________________________*/

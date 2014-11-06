@@ -1,0 +1,28 @@
+/*______________________________*/
+/**
+ * 
+ */
+package vue;
+
+import javax.swing.JFrame;
+import java.awt.BorderLayout;
+import javax.swing.JSplitPane;
+import java.awt.GridLayout;
+
+/**
+ * @author qfdk
+ * Cree le 2013年12月17日
+ */
+public class Mafenetre extends JFrame
+{
+	public Mafenetre() {
+		setTitle("coucou");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		pack();
+	}
+
+}
+
+/*______________________________*/
+/*___________FIN_______________*/
+/*______________________________*/
