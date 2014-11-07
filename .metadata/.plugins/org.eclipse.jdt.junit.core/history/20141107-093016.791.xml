@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestUnitaireRationnelSimple" project="tp2" tests="18" started="18" failures="0" errors="0" ignored="0">
+  <testsuite name="rationnel.TestUnitaireRationnelSimple" time="0.007">
+    <testcase name="test_Constructeur1" classname="rationnel.TestUnitaireRationnelSimple" time="0.001"/>
+    <testcase name="test_Constructeur2" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="test_Constructeur3" classname="rationnel.TestUnitaireRationnelSimple" time="0.001"/>
+    <testcase name="testSomme" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="testInverseEchecAssert" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="testCompareTo" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="inserer_fin" classname="rationnel.TestUnitaireRationnelSimple" time="0.002"/>
+    <testcase name="test_Constructeur2_EchecAssertion" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="testGetNumerateur" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="testGetDenominateur" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="inserer_tete_tableau_1elt" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="testEqualsRationnel" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="inserer_partout" classname="rationnel.TestUnitaireRationnelSimple" time="0.001"/>
+    <testcase name="inserer_tete" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="inserer_tableau_vide" classname="rationnel.TestUnitaireRationnelSimple" time="0.001"/>
+    <testcase name="testInverse" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="testValeur" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+    <testcase name="inserer_fin_tableau_1elt" classname="rationnel.TestUnitaireRationnelSimple" time="0.0"/>
+  </testsuite>
+</testrun>
