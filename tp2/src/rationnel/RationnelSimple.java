@@ -4,8 +4,6 @@
  */
 package rationnel;
 
-import java.text.DecimalFormat;
-
 import types.Rationnel;
 
 /**
@@ -31,8 +29,8 @@ public class RationnelSimple implements Rationnel
 	 * initialiser un rationnel avec numerateur et dénominateur
 	 * @param num : valeur du numérateur
 	 * @param den : valeur du dénominateur
-	 * @pre den != 0
-	 * @post fraction irréductible et dénominateur > 0
+	 *  den != 0
+	 *  fraction irréductible et dénominateur > 0
 	 */
 	public RationnelSimple(int num, int den)
 	{
@@ -81,14 +79,13 @@ public class RationnelSimple implements Rationnel
 	@Override
 	public Rationnel somme(Rationnel r)
 	{
-//		System.out.println(this.num+"---"+this.deno);
 		return new RationnelSimple(this.num*r.getDenominateur()+this.deno*r.getNumerateur(),this.deno*r.getDenominateur());
 	}
 
 	/**
 	 * inverser le rationnel courant
 	 * @return nouveau Rationnel inverse du rationnel courant
-	 * @pre numérateur != 0
+	 *  numérateur != 0
 	 */
 	@Override
 	public Rationnel inverse() 

@@ -1,0 +1,121 @@
+/*______________________________*/
+/**
+ * 
+ */
+package rationnel;
+
+import types.Rationnel;
+
+/**
+ * @author qfdk
+ * Cree le 2014年10月21日
+ */
+public class RationnelCouple implements Rationnel
+{
+
+	private int num;
+	private int deno;
+	
+	/**
+	 * @param num
+	 * @param deno
+	 */
+	public RationnelCouple(int num, int deno)
+	{
+		assert deno!=0:"le den ne peut pas etre 0";
+		this.num = num;
+		this.deno = deno;
+	}
+
+
+	/**
+	 * @param num
+	 */
+	public RationnelCouple(int num)
+	{
+		this.num = num;
+		this.deno = 1;
+	}
+
+	/**
+	 * @param r1
+	 */
+	public RationnelCouple(Rationnel r1)
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#equals(types.Rationnel)
+	 */
+	@Override
+	public boolean equals(Rationnel r)
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#somme(types.Rationnel)
+	 */
+	@Override
+	public Rationnel somme(Rationnel r)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#inverse()
+	 */
+	@Override
+	public Rationnel inverse()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#valeur()
+	 */
+	@Override
+	public double valeur()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#getNumerateur()
+	 */
+	@Override
+	public int getNumerateur()
+	{
+		return this.num;
+	}
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#getDenominateur()
+	 */
+	@Override
+	public int getDenominateur()
+	{
+		return this.deno;
+	}
+
+	/* (non-Javadoc)
+	 * @see types.Rationnel#compareTo(types.Rationnel)
+	 */
+	@Override
+	public int compareTo(Rationnel autre)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
+
+/*______________________________*/
+/*___________FIN_______________*/
+/*______________________________*/

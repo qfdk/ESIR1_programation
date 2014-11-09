@@ -43,18 +43,33 @@ public class clientRationnel
 	 * @param i
 	 */
 	public static void insererRationnel(RationnelCouple rationnelCouple,
-			Rationnel[] lesRationnels, int i)
+			Rationnel[] lesRationnels, int nb)
 	{
-		// TODO Auto-generated method stub
+		assert 0 <= nb && nb < lesRationnels.length : "On peut pas inserer pour raison de taille";
+		// on repere la position où il faut inserer
+		int i = 0;
+
+		while (i < nb && rationnelCouple.compareTo(lesRationnels[i]) > 0)
+		{
+			i++;
+		} 
+		// A ce niveau i se trouve à la position où on doit inserer
+		for (int j = nb; j > i; j--)
+		{
+			// on decale tous les elements vers la droite
+			lesRationnels[j] = lesRationnels[j - 1];
+		}
+		lesRationnels[i] = rationnelCouple;
 
 	}
 
 	/**
 	 * Inserer un rationnel dans le tableau leRationnels
-	 * @pre : tableau trié dans(ordre croissant)
-	 * @pre : 0 <=nb<=LesRationnels.length * @param r1
-	 * @param lesRationnels
-	 * @param i
+	 *  tableau trié dans(ordre croissant)
+	 *  0 <=nb<=LesRationnels.length * 
+	 * @param r1 rationnel
+	 * @param lesRationnels la tab de rationnel
+	 * @param nb la taille du tableu
 	 */
 	public static void insererRationnel(Rationnel r1,
 			Rationnel[] lesRationnels, int nb)
@@ -66,7 +81,8 @@ public class clientRationnel
 		while (i < nb && r1.compareTo(lesRationnels[i]) > 0)
 		{
 			i++;
-		} // A ce niveau i se trouve à la position où on doit inserer
+		} 
+		// A ce niveau i se trouve à la position où on doit inserer
 		for (int j = nb; j > i; j--)
 		{
 			// on decale tous les elements vers la droite
@@ -131,9 +147,11 @@ public class clientRationnel
 	}
 
 	/**
-	 * @param num
-	 * @param den
-	 * @return
+	 * 
+	 * faburiquer le rationnel
+	 * @param num num
+	 * @param den den
+	 * @return une instance de Rationnel
 	 */
 	public static Rationnel makeRationnel(int num, int den)
 	{
