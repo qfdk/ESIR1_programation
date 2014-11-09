@@ -1,6 +1,24 @@
 ESIR_prog
 =========
-# TP1
-# TP2
+# introduction de git
 
-TP de programation
+[cliquez-moi](https://www.youtube.com/watch?v=dK4iCStqAxc)
+
+GUI
+	
+	ubuntu:	apt-get install git-cola
+
+## TP1
+* fini
+
+## TP2
+*  Rationnel simple
+*  clientRationnel
+*  RattionnelCouple[à vérifier]
+
+
+
+
+
+
+# fin
