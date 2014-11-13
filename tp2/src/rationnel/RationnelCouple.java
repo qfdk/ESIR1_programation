@@ -4,6 +4,8 @@
  */
 package rationnel;
 
+import java.util.List;
+
 import types.Rationnel;
 
 /**
@@ -12,7 +14,8 @@ import types.Rationnel;
  */
 public class RationnelCouple implements Rationnel
 {
-
+	private Couple<Integer,Integer> monCouple;
+	
 	private int num;
 	private int deno;
 	
@@ -26,7 +29,12 @@ public class RationnelCouple implements Rationnel
         int g =getPGCD(num, deno);
         this.num = num   / g;
         this.deno = deno / g;
-        if (deno < 0) { this.deno = -deno/g; this.num = -num/g; }	
+        monCouple=new Couple<Integer, Integer>(this.num, this.deno);
+        if (deno < 0) 
+        { 
+        	this.deno = -deno/g; this.num = -num/g;
+        	monCouple=new Couple<Integer, Integer>(this.num, this.deno);
+        }	
 	}
 
 
@@ -37,6 +45,8 @@ public class RationnelCouple implements Rationnel
 	{
 		this.num = num;
 		this.deno = 1;
+		
+		monCouple=new Couple<Integer, Integer>(num, 1);
 	}
 
 	/**
