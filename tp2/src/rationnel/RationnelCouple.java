@@ -16,8 +16,8 @@ public class RationnelCouple implements Rationnel
 {
 	private Couple<Integer,Integer> monCouple;
 	
-	private int num;
-	private int deno;
+//	private int num;
+//	private int deno;
 	
 	/**
 	 * @param num
@@ -27,13 +27,10 @@ public class RationnelCouple implements Rationnel
 	{
 		assert deno!=0:"le den ne peut pas etre 0";
         int g =getPGCD(num, deno);
-        this.num = num   / g;
-        this.deno = deno / g;
-        monCouple=new Couple<Integer, Integer>(this.num, this.deno);
+        monCouple=new Couple<Integer, Integer>(num/ g,deno / g);
         if (deno < 0) 
         { 
-        	this.deno = -deno/g; this.num = -num/g;
-        	monCouple=new Couple<Integer, Integer>(this.num, this.deno);
+        	monCouple=new Couple<Integer, Integer>(-deno/g, -num/g);
         }	
 	}
 
@@ -42,10 +39,7 @@ public class RationnelCouple implements Rationnel
 	 * @param num
 	 */
 	public RationnelCouple(int num)
-	{
-		this.num = num;
-		this.deno = 1;
-		
+	{		
 		monCouple=new Couple<Integer, Integer>(num, 1);
 	}
 
@@ -72,7 +66,7 @@ public class RationnelCouple implements Rationnel
 	@Override
 	public boolean equals(Rationnel r)
 	{
-		return ((this.num == r.getNumerateur())&& (this.deno == r
+		return ((monCouple.getFirst() == r.getNumerateur())&& (monCouple.getSecond() == r
 				.getDenominateur()));
 	}
 
@@ -83,7 +77,7 @@ public class RationnelCouple implements Rationnel
 	public Rationnel somme(Rationnel r)
 	{
 		// TODO Auto-generated method stub
-		return new RationnelCouple(this.num*r.getDenominateur()+this.deno*r.getNumerateur(),this.deno*r.getDenominateur());
+		return new RationnelCouple(monCouple.getFirst()*r.getDenominateur()+monCouple.getSecond()*r.getNumerateur(),monCouple.getSecond()*r.getDenominateur());
 	}
 
 	/* (non-Javadoc)
@@ -92,8 +86,8 @@ public class RationnelCouple implements Rationnel
 	@Override
 	public Rationnel inverse()
 	{
-		assert this.num!=0:"inpossible";
-		return new RationnelCouple(deno, num);
+		assert monCouple.getFirst()!=0:"inpossible";
+		return new RationnelCouple(monCouple.getSecond(), monCouple.getFirst());
 	}
 
 	/* (non-Javadoc)
@@ -102,7 +96,7 @@ public class RationnelCouple implements Rationnel
 	@Override
 	public double valeur()
 	{
-		return this.num*1.00/this.deno;
+		return monCouple.getFirst()*1.00/monCouple.getSecond();
 	}
 
 	/* (non-Javadoc)
@@ -111,7 +105,7 @@ public class RationnelCouple implements Rationnel
 	@Override
 	public int getNumerateur()
 	{
-		return this.num;
+		return monCouple.getFirst();
 	}
 
 	/* (non-Javadoc)
@@ -120,7 +114,7 @@ public class RationnelCouple implements Rationnel
 	@Override
 	public int getDenominateur()
 	{
-		return this.deno;
+		return monCouple.getSecond();
 	}
 
 	/* (non-Javadoc)
