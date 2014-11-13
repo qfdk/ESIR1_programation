@@ -4,24 +4,22 @@
  */
 package rationnel;
 
-import java.util.List;
-
 import types.Rationnel;
 
 /**
  * @author qfdk
- * Cree le 2014年10月21日
+ * RationnelCouple
+ * @see Raionnnel
  */
 public class RationnelCouple implements Rationnel
 {
+	// attibut private de type Couple
 	private Couple<Integer,Integer> monCouple;
 	
-//	private int num;
-//	private int deno;
-	
 	/**
-	 * @param num
-	 * @param deno
+	 * Constructeur RationnelCouple
+	 * @param num numerateur
+	 * @param deno denominateur
 	 */
 	public RationnelCouple(int num, int deno)
 	{
@@ -30,13 +28,14 @@ public class RationnelCouple implements Rationnel
         monCouple=new Couple<Integer, Integer>(num/ g,deno / g);
         if (deno < 0) 
         { 
-        	monCouple=new Couple<Integer, Integer>(-deno/g, -num/g);
+        	monCouple=new Couple<Integer, Integer>(-num/g,-deno/g);
         }	
 	}
 
 
 	/**
-	 * @param num
+	 * Constructeur RationnelCouple
+	 * @param num numerateur
 	 */
 	public RationnelCouple(int num)
 	{		
@@ -44,14 +43,14 @@ public class RationnelCouple implements Rationnel
 	}
 
 	/**
-	 * @param r1
+	 * Constructeur RationnelCouple
+	 * @param r  Rationnel
 	 */
 	public RationnelCouple(Rationnel r)
 	{
 		this(r.getNumerateur(),r.getDenominateur());
 	}
 
-	@SuppressWarnings("unused")
 	private int getPGCD(int a, int b)
 	{
         if (a < 0) a = -a;
@@ -76,7 +75,6 @@ public class RationnelCouple implements Rationnel
 	@Override
 	public Rationnel somme(Rationnel r)
 	{
-		// TODO Auto-generated method stub
 		return new RationnelCouple(monCouple.getFirst()*r.getDenominateur()+monCouple.getSecond()*r.getNumerateur(),monCouple.getSecond()*r.getDenominateur());
 	}
 
@@ -134,7 +132,26 @@ public class RationnelCouple implements Rationnel
 			return -1;
 		}
 	}
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder();
+		if(monCouple.getFirst()==0)
+		{
+			sb.append("0");
+		}
+		else if(monCouple.getSecond()==1)
+		{
+			sb.append(monCouple.getFirst());
+		}else
+		{
+			sb.append(monCouple.getFirst()+"/"+monCouple.getSecond());
+		}
+		return sb.toString();
+	}
 }
 
 /*______________________________*/

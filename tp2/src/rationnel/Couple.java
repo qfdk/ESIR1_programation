@@ -7,6 +7,8 @@ package rationnel;
 /**
  * @author qfdk
  * Cree le 2014年11月12日
+ * @param <T1> type 1
+ * @param <T2> type 2
  */
 public class Couple<T1,T2>
 {
@@ -14,6 +16,7 @@ public class Couple<T1,T2>
 	private T2 second;
 	
 	/**
+	 * Classe Couple
 	 * @param t1
 	 * @param t2
 	 */

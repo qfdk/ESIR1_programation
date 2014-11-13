@@ -33,7 +33,6 @@
 <fullyQualifiedTypeName name="obj.Professeur"/>
 <fullyQualifiedTypeName name="obj.ZhaEudiant"/>
 <fullyQualifiedTypeName name="Fabriquer.FaburiquerPersonne"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="tp1.src.Test"/>
 <fullyQualifiedTypeName name="tp1.src.TestUnitaireTriInsertion"/>
@@ -43,7 +42,6 @@
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
@@ -51,13 +49,15 @@
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="rationnel.clientRationnel"/>
 <fullyQualifiedTypeName name="java.lang.Class"/>
-<fullyQualifiedTypeName name="rationnel.RationnelCouple"/>
-<fullyQualifiedTypeName name="types.Rationnel"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="rationnel.Couple"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="rationnel.RationnelCouple"/>
 <fullyQualifiedTypeName name="rationnel.RationnelSimple"/>
+<fullyQualifiedTypeName name="types.Rationnel"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>
