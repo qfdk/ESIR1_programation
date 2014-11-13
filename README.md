@@ -12,11 +12,10 @@ GUI
 * fini
 
 ## TP2
-*  Rationnel simple
-*  clientRationnel
-*  RattionnelCouple[à vérifier]
+* fini
 
-
+## TP3
+* à preparer
 
 
 
