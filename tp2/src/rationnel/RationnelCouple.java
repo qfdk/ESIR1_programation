@@ -23,7 +23,7 @@ public class RationnelCouple implements Rationnel
 	 */
 	public RationnelCouple(int num, int deno)
 	{
-		assert deno!=0:"le den ne peut pas etre 0";
+		assert deno!=0:"le denominateur ne peut pas etre 0";
         int g =getPGCD(num, deno);
         monCouple=new Couple<Integer, Integer>(num/ g,deno / g);
         if (deno < 0) 
