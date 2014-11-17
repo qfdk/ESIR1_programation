@@ -15,7 +15,8 @@ GUI
 * fini
 
 ## TP3
-* à preparer
+* 所有文件已经引入，等待完成程序
+* les fonctions doivent être remplis.
 
 
 
