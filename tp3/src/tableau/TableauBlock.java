@@ -14,6 +14,7 @@ public class TableauBlock<T> implements Tableau<T>
 {
 
 	/**
+	 * le constructeur
 	 * @param i
 	 */
 	public TableauBlock(int i)
