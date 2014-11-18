@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;tf&apos; in &apos;modele.MonEditor&apos; to &apos;tf_note&apos;&#x0A;- Original project: &apos;TP5&apos;&#x0A;- Original element: &apos;modele.MonEditor.tf&apos;&#x0A;- Renamed element: &apos;modele.MonEditor.tf_note&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;tf&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;modele{MonEditor.java[MonEditor^tf" name="tf_note" references="true" setter="false" stamp="1387338233705" textual="false" version="1.0"/>
-</session>

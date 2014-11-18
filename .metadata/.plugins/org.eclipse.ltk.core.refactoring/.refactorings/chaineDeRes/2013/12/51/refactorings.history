@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;chaineDeRes.AbsVerifercateur&apos; to &apos;AbsGestionaire&apos;&#x0A;- Original project: &apos;chaineDeRes&apos;&#x0A;- Original element: &apos;chaineDeRes.AbsVerifercateur&apos;&#x0A;- Renamed element: &apos;chaineDeRes.AbsGestionaire&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AbsVerifercateur&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;chaineDeRes{AbsVerifercateur.java[AbsVerifercateur" matchStrategy="1" name="AbsGestionaire" qualified="false" references="true" similarDeclarations="false" stamp="1387353491004" textual="false" version="1.0"/>
-</session>

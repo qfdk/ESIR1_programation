@@ -14,6 +14,7 @@ public class Tableau2x<T> implements Tableau<T>
 {
 
 	/**
+	 * le constucteur
 	 * @param i
 	 */
 	public Tableau2x(int i)
