@@ -1,2 +1,5 @@
-.metadata
+/.metadata
 RemoteSystemsTempFiles
+/.DS_Store
+.settings
+bin
