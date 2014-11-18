@@ -4,6 +4,7 @@
  */
 package main;
 
+import tableau.Block;
 import types.Tableau;
 
 /**
@@ -20,8 +21,14 @@ public class NombresPremiers
 	 */
 	public static boolean estPremier(int n, Tableau<Integer> nombresPremiers)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		for(int i=0;i<nombresPremiers.size();i++)
+		{
+			if(nombresPremiers.get(i)%n!=0)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**

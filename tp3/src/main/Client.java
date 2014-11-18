@@ -38,13 +38,13 @@ public class Client
     System.out.println("\n----------------------------------------------------------------");
     System.out.println("Test Tableau2x");
     System.out.println("----------------------------------------------------------------");
-    testerTableau(t1, t2, TypeTableau.Tableau2x);
+//    testerTableau(t1, t2, TypeTableau.Tableau2x);
 
     // Tester les tableaux de type TableauBlock
     System.out.println("\n----------------------------------------------------------------");
     System.out.println("Test TableauBlock");
     System.out.println("----------------------------------------------------------------");
-    testerTableau(t1, t2, TypeTableau.TableauBlock);
+ //   testerTableau(t1, t2, TypeTableau.TableauBlock);
   }
 
   // t1 et t2 : deux tableaux de nombres
