@@ -14,6 +14,7 @@ public class Block<T> implements Tableau<T>
 {
 
 	/**
+	 * le constucteur
 	 * @param capacite
 	 */
 	public Block(int capacite)
