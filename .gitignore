@@ -6,6 +6,7 @@
 # eclipse specific git ignore
 *.pydevproject
 .project
+.DS_Store
 .metadata
 bin/**
 tmp/**
