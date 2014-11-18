@@ -3,23 +3,29 @@
  * 
  */
 package tableau;
-
+import types.Array;
 import types.Tableau;
 
 /**
  * @author qfdk
  * Cree le 2014年11月17日
+ * @param <T> 
  */
-public class Block<T> implements Tableau<T>
-{
-
+public class Block<T> implements Tableau<T>{
+	
+	private Array<T> monTableu;
+	private int taille;
+	private int capacite;
+	
 	/**
 	 * le constucteur
 	 * @param capacite : Capacité du block
 	 */
 	public Block(int capacite)
 	{
-		// TODO Auto-generated constructor stub
+		this.taille=0;
+		assert 0<=taille&&taille<=capacite&&0<capacite:"l'argument n'est pas valide";
+		monTableu=new Array<T>(capacite);
 	}
 
 	/* (non-Javadoc)
@@ -28,8 +34,7 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public int size()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return this.taille;
 	}
 
 	/* (non-Javadoc)
@@ -38,8 +43,7 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public boolean empty()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return this.size()<=0;
 	}
 
 	/* (non-Javadoc)
@@ -48,8 +52,7 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public boolean full()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return taille==monTableu.length();
 	}
 
 	/* (non-Javadoc)
@@ -58,8 +61,8 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public T get(int i)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		assert 0<=i&&i<=this.size():"la taille n''est pas valide";
+		return monTableu.get(i);
 	}
 
 	/* (non-Javadoc)
@@ -68,8 +71,8 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public void set(int i, T v)
 	{
-		// TODO Auto-generated method stub
-		
+		assert 0<=i&&i<=this.size():"la taille n''est pas valide";
+		monTableu.set(i, v);
 	}
 
 	/* (non-Javadoc)
@@ -78,8 +81,9 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public void push_back(T x)
 	{
-		// TODO Auto-generated method stub
-		
+		assert !this.full():"Erreur : le tableau ne devrait pas être plein";
+		monTableu.set(size(), x);
+		taille++;
 	}
 
 	/* (non-Javadoc)
@@ -88,9 +92,11 @@ public class Block<T> implements Tableau<T>
 	@Override
 	public void pop_back()
 	{
-		// TODO Auto-generated method stub
-		
+		assert !this.empty():"Erreur : le tableau est vide.";
+		taille=taille-1;
+		monTableu.set(taille, null);
 	}
+
 
 }
 
