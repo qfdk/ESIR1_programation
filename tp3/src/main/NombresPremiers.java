@@ -23,14 +23,34 @@ public class NombresPremiers
 	{
 		for(int i=0;i<nombresPremiers.size();i++)
 		{
-			if(nombresPremiers.get(i)%n!=0)
+			if(!(nombresPremiers.get(i)%n==0))
 			{
 				return false;
 			}
 		}
 		return true;
 	}
-
+	
+	public static boolean isPrime(int a) {  
+		  
+        boolean flag = true;  
+  
+        if (a < 2) {// 素数不小于2  
+            return false;  
+        } else {  
+  
+            for (int i = 2; i <= Math.sqrt(a); i++) {  
+  
+                if (a % i == 0) {// 若能被整除，则说明不是素数，返回false  
+  
+                    flag = false;  
+                    break;// 跳出循环  
+                }  
+            }  
+        }  
+        return flag;  
+    }  
+	
 	/**
 	 * @param n
 	 * @param nombresPremiers
