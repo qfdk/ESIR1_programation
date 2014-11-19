@@ -16,9 +16,10 @@ public class NombresPremiers
 {
 
 	/**
-	 * @param n
+	 * 
+	 * @param n element
 	 * @param nombresPremiers
-	 * @return
+	 * @return s'il est dans mon tableu
 	 */
 	public static boolean estPremier(int n, Tableau<Integer> nombresPremiers)
 	{
@@ -117,10 +118,14 @@ public class NombresPremiers
 		int cpt = 0;
 		for (int i = 0; i < t.size(); i++)
 		{
-			if (estPremier(t.get(i), nombresPremiers))
+			for(int j=0;j<nombresPremiers.size();j++)
 			{
-				t.set(i, null);
-				cpt++;
+				if(t.get(i)==nombresPremiers.get(j))
+				{
+					t.set(i, t.get(t.size()-1));
+					t.pop_back();
+					cpt++;
+				}
 			}
 		}
 		return cpt;
