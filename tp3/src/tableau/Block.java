@@ -15,10 +15,6 @@ public class Block<T> implements Tableau<T>{
 	
 	private Array<T> monTableu;
 	private int taille;
-<<<<<<< HEAD
-=======
-	
->>>>>>> FETCH_HEAD
 	/**
 	 * le constucteur
 	 * @param capacite : Capacité du block
