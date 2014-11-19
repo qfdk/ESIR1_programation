@@ -53,7 +53,7 @@ public abstract class ATU_NombresPremiers {
     System.out.print("\ncalculerNombresPremiers de 2 à " + N + " : ");
     lesNombresPremiers = makeTableau(tpremiers.length);
     // calculer les nombres premiers avec la fonction à tester
-    int dernier = calculerNombresPremiers(N, lesNombresPremiers);
+   //int dernier = calculerNombresPremiers(N, lesNombresPremiers);
     // comparer le tableau obtenu avec le tableau magique tpremiers
     Assert.assertTrue("Erreur : la taille du tableau devrait être " + tpremiers.length + " et non " + lesNombresPremiers.size(), tpremiers.length == lesNombresPremiers.size());
     for (int i = 0; i < tpremiers.length; ++i) {
