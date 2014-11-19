@@ -42,16 +42,18 @@ public class NombresPremiers
 			Tableau<Integer> nombresPremiers)
 	{
 		assert nombresPremiers.empty() : "Le tableau doit etre initialement vide";
+
 		int i;
-		for (i = 2; i <=n; i++)
+		for(i=2;i<=n;i++)
 		{
-			if (isPrime(i))
+			if(isPrime(i)) 
 			{
-				// Si le tableau est plein on arrête et on retourne l'entier
-				if (nombresPremiers.full())
+				// Si le tableau est plein on arrête et on retourne l'entier testé
+				if(nombresPremiers.full()) 
 				{
 					return i;
-				} else
+				}
+				else
 				{
 					nombresPremiers.push_back(i);
 				}
