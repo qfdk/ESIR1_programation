@@ -15,7 +15,6 @@ public class Block<T> implements Tableau<T>{
 	
 	private Array<T> monTableu;
 	private int taille;
-	private int capacite;
 	
 	/**
 	 * le constucteur
