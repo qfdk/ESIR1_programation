@@ -15,8 +15,6 @@ public class Block<T> implements Tableau<T>{
 	
 	private Array<T> monTableu;
 	private int taille;
-	private int capacite;
-	
 	/**
 	 * le constucteur
 	 * @param capacite : Capacité du block
@@ -61,7 +59,7 @@ public class Block<T> implements Tableau<T>{
 	@Override
 	public T get(int i)
 	{
-		assert 0<=i&&i<=this.size():"la taille n''est pas valide";
+		assert 0<=i&&i<this.size():"la taille n''est pas valide";
 		return monTableu.get(i);
 	}
 
@@ -71,7 +69,7 @@ public class Block<T> implements Tableau<T>{
 	@Override
 	public void set(int i, T v)
 	{
-		assert 0<=i&&i<=this.size():"la taille n''est pas valide";
+		assert 0<=i&&i<this.size():"la taille n''est pas valide";
 		monTableu.set(i, v);
 	}
 
