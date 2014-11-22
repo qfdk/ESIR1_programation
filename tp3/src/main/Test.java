@@ -26,7 +26,19 @@ public class Test
 	    Tableau<Integer> hasard = NombresPremiers.remplirHasard(10000);
 	    System.out.println(hasard);
 	}
-
+	static double power2(double x,int n)
+	{
+		assert n>=0:"Boof!";
+		if(n==0){
+			return 1;
+		}
+		double tmp=power2(x, n/2);
+		if(n%2==0)
+		{
+			return tmp*tmp;
+		}
+		return tmp*tmp*x;
+	}
 }
 
 /*______________________________*/
