@@ -4,6 +4,8 @@ import java.util.Random;
 import org.junit.Assert;
 import org.junit.Test;
 
+import tp1.src.TriDicho;
+
 // test tri insertion
 public class TestUnitaireTriInsertion
 {
@@ -140,6 +142,16 @@ public class TestUnitaireTriInsertion
   }
 
   /**
+ * @param tableau_resultat
+ * @param tnombres
+ */
+private void tester_egalite(int[] tableau_resultat, int[] tnombres)
+{
+	// TODO Auto-generated method stub
+	
+}
+
+/**
    * initialiser un tableau avec des nombres tirés au hasard
    * @param nb  : nombre d'éléments du tableau (0 < nb)
    * @return      tableau de nb éléments tirés au hasard

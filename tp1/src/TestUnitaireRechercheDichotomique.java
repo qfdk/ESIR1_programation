@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import tp1.src.TriDicho;
+
 // tests recherche dichotomique
 public class TestUnitaireRechercheDichotomique {
 

@@ -4,6 +4,7 @@
  */
 package main;
 
+import tableau.TableauBlock;
 import types.Tableau;
 
 /**
@@ -23,8 +24,10 @@ public class Test
 //		{
 //			System.out.println(i+"----"+NombresPremiers.isPrime(i)+"\n");
 //		}
-	    Tableau<Integer> hasard = NombresPremiers.remplirHasard(10000);
-	    System.out.println(hasard);
+//	    Tableau<Integer> hasard = NombresPremiers.remplirHasard(10000);
+//	    System.out.println(hasard);
+		TableauBlock<Integer> x=new TableauBlock<Integer>(1);
+		
 	}
 	static double power2(double x,int n)
 	{

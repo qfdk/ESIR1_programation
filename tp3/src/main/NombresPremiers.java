@@ -118,20 +118,50 @@ public class NombresPremiers
 			Tableau<Integer> nombresPremiers)
 	{
 		int cpt = 0;
-		for (int i = 0; i < t.size(); i++)
+		int i=0;
+		while(i<t.size())
 		{
-			for(int j=0;j<nombresPremiers.size();j++)
-			{
-				if(t.get(i)==nombresPremiers.get(j))
-				{
-					t.set(i, t.get(t.size()-1));
-					t.pop_back();
-					cpt++;
-				}
-			}
+			  if(rechercheDichotomique(t.get(i), nombresPremiers))  
+			  {
+				  t.set(i, t.get(t.size()-1));
+				  t.pop_back();
+				  cpt++;
+			  }
+			  else 
+			  {
+				  i++;
+			  }
 		}
 		return cpt;
 	}
+	
+
+	/**
+	 * @param x valeur
+	 * @param t tableu
+	 * @return true or false
+	 */
+	public static boolean rechercheDichotomique(int x, Tableau<Integer> t)
+	{
+		int inf = 0;
+		int sup = t.size() - 1;
+		while (inf <= sup)
+		{
+			int m = (sup + inf) / 2;
+			if (x == t.get(m))
+			{
+				return true;
+			} else if (x < t.get(m))
+			{
+				sup = m - 1;
+			} else
+			{
+				inf = m + 1;
+			}
+		}
+		return false;
+	}
+
 
 }
 

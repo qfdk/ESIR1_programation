@@ -13,13 +13,22 @@ import types.Tableau;
 public class TableauBlock<T> implements Tableau<T>
 {
 
+	private final int N=4;
+	private Tableau2x<Block<Integer>> monTableau;
+	private int taille;
+	
 	/**
 	 * le constructeur
 	 * @param i
 	 */
 	public TableauBlock(int i)
 	{
-		// TODO Auto-generated constructor stub
+		assert i>0:"Merci  de donner une taille positive";
+		this.taille=0;
+//		monTableau=new Tableau2x[10]<Block<Integer>>(N) ;
+
+			monTableau=new Tableau2x<Block<Integer>>(i);
+
 	}
 
 	/**

@@ -3,7 +3,7 @@
  * 
  */
 package tableau;
-
+import types.Array;
 import types.Tableau;
 
 /**
@@ -13,13 +13,19 @@ import types.Tableau;
 public class Tableau2x<T> implements Tableau<T>
 {
 
+	private Array<T> monTableau;
+	private int taille;
+
 	/**
 	 * le constucteur
 	 * @param i le capacite
+	 * @return 
 	 */
 	public Tableau2x(int i)
 	{
-		// TODO Auto-generated constructor stub
+		assert i>0 : "Taille du tableau non valide";
+		this.taille = 0;
+		this.monTableau = new Array<T>(i);
 	}
 
 	/* (non-Javadoc)
@@ -28,8 +34,7 @@ public class Tableau2x<T> implements Tableau<T>
 	@Override
 	public int size()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return taille;
 	}
 
 	/* (non-Javadoc)
@@ -38,8 +43,7 @@ public class Tableau2x<T> implements Tableau<T>
 	@Override
 	public boolean empty()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return this.size()==0;
 	}
 
 	/* (non-Javadoc)
@@ -48,7 +52,6 @@ public class Tableau2x<T> implements Tableau<T>
 	@Override
 	public boolean full()
 	{
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -58,8 +61,8 @@ public class Tableau2x<T> implements Tableau<T>
 	@Override
 	public T get(int i)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		assert 0<=i&&i<this.size():"la taille n''est pas valide";
+		return monTableau.get(i);
 	}
 
 	/* (non-Javadoc)
@@ -68,8 +71,8 @@ public class Tableau2x<T> implements Tableau<T>
 	@Override
 	public void set(int i, T v)
 	{
-		// TODO Auto-generated method stub
-		
+		assert 0<=i&&i<this.size():"la taille n''est pas valide";
+		monTableau.set(i, v);
 	}
 
 	/* (non-Javadoc)
@@ -78,8 +81,17 @@ public class Tableau2x<T> implements Tableau<T>
 	@Override
 	public void push_back(T x)
 	{
-		// TODO Auto-generated method stub
-		
+		if(monTableau.length()==taille)
+		{
+			Array<T> tmp = new Array<T>(monTableau.length()*2);
+			for(int i=0;i<taille;i++)
+			{
+				tmp.set(i, monTableau.get(i));
+			}
+			monTableau = tmp;
+		}
+		monTableau.set(taille, x);
+		taille++;
 	}
 
 	/* (non-Javadoc)
@@ -87,9 +99,9 @@ public class Tableau2x<T> implements Tableau<T>
 	 */
 	@Override
 	public void pop_back()
-	{
-		// TODO Auto-generated method stub
-		
+	{		
+		assert !this.empty():"Erreur : le tableau est vide.";
+		taille--;
 	}
 
 }

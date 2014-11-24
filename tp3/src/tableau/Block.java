@@ -95,7 +95,19 @@ public class Block<T> implements Tableau<T>{
 		monTableu.set(taille, null);
 	}
 
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder();
+		for(int i=0;i<size();i++)
+		{
+			sb.append(monTableu.get(i)).append("\n");
+		}
+		return sb.toString();
+	}
 }
 
 /*______________________________*/

@@ -3,6 +3,8 @@ import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
+import tp1.src.TriDicho;
+
 // test fusion
 public class TestUnitaireFusion {
 
