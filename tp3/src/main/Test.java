@@ -4,6 +4,9 @@
  */
 package main;
 
+import java.util.Scanner;
+
+import tableau.Tableau2x;
 import tableau.TableauBlock;
 import types.Tableau;
 
@@ -28,20 +31,40 @@ public class Test
 //	    System.out.println(hasard);
 		TableauBlock<Integer> x=new TableauBlock<Integer>(1);
 		
-	}
-	static double power2(double x,int n)
-	{
-		assert n>=0:"Boof!";
-		if(n==0){
-			return 1;
-		}
-		double tmp=power2(x, n/2);
-		if(n%2==0)
+		Scanner entree = new Scanner(System.in);
+		int N =100;
+		
+		System.out.print("Veuillez donner un nombre :");
+		N = entree.nextInt();
+		
+		Tableau<Integer> tab = new Tableau2x<>(1);
+		tab = nombres(N);
+		
+		for(int i=0;i<tab.size();i++)
 		{
-			return tmp*tmp;
+			System.out.println(tab.get(i));
 		}
-		return tmp*tmp*x;
+
+		
 	}
+	
+	static Tableau<Integer> nombres(int N)
+	{
+		System.out.println("*** Nombre premier entre 2 et "+N);
+		Tableau<Integer> result = new Tableau2x<>(1);
+		result.push_back(2);
+
+		for(int i=3;i<N;i=i+2)
+		{
+			if(NombresPremiers.isPrime(i))
+			{
+				result.push_back(i);
+				
+			}
+		}
+		return result;	
+	}
+
 }
 
 /*______________________________*/

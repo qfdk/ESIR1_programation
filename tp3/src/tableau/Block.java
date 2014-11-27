@@ -13,7 +13,7 @@ import types.Tableau;
  */
 public class Block<T> implements Tableau<T>{
 	
-	private Array<T> monTableu;
+	private Array<T> monTableau;
 	private int taille;
 	/**
 	 * le constucteur
@@ -23,7 +23,7 @@ public class Block<T> implements Tableau<T>{
 	{
 		this.taille=0;
 		assert 0<=taille&&taille<=capacite&&0<capacite:"l'argument n'est pas valide";
-		monTableu=new Array<T>(capacite);
+		monTableau=new Array<T>(capacite);
 	}
 
 	/* (non-Javadoc)
@@ -50,7 +50,7 @@ public class Block<T> implements Tableau<T>{
 	@Override
 	public boolean full()
 	{
-		return taille==monTableu.length();
+		return taille==monTableau.length();
 	}
 
 	/* (non-Javadoc)
@@ -60,7 +60,7 @@ public class Block<T> implements Tableau<T>{
 	public T get(int i)
 	{
 		assert 0<=i&&i<this.size():"la taille n''est pas valide";
-		return monTableu.get(i);
+		return monTableau.get(i);
 	}
 
 	/* (non-Javadoc)
@@ -70,7 +70,7 @@ public class Block<T> implements Tableau<T>{
 	public void set(int i, T v)
 	{
 		assert 0<=i&&i<this.size():"la taille n''est pas valide";
-		monTableu.set(i, v);
+		monTableau.set(i, v);
 	}
 
 	/* (non-Javadoc)
@@ -80,7 +80,7 @@ public class Block<T> implements Tableau<T>{
 	public void push_back(T x)
 	{
 		assert !this.full():"Erreur : le tableau ne devrait pas être plein";
-		monTableu.set(size(), x);
+		monTableau.set(size(), x);
 		taille++;
 	}
 
@@ -92,7 +92,7 @@ public class Block<T> implements Tableau<T>{
 	{
 		assert !this.empty():"Erreur : le tableau est vide.";
 		taille=taille-1;
-		monTableu.set(taille, null);
+		monTableau.set(taille, null);
 	}
 
 	/* (non-Javadoc)
@@ -104,7 +104,7 @@ public class Block<T> implements Tableau<T>{
 		StringBuilder sb=new StringBuilder();
 		for(int i=0;i<size();i++)
 		{
-			sb.append(monTableu.get(i)).append("\n");
+			sb.append(monTableau.get(i)).append("\n");
 		}
 		return sb.toString();
 	}

@@ -12,6 +12,7 @@ public class TU_TableauBlock extends TU_Tableau2x {
   public Tableau<Integer> makeTableau(int capinit, int capabloc) {
     return new TableauBlock<Integer>(capinit);
   }
+  
   public Tableau<Integer> makeTableau(int capinit) {
     return new TableauBlock<Integer>(capinit, 13);
   }

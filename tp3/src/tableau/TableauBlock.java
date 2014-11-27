@@ -13,9 +13,10 @@ import types.Tableau;
 public class TableauBlock<T> implements Tableau<T>
 {
 
-	private final int N=4;
-	private Tableau2x<Block<Integer>> monTableau;
+	private static final int N=128;
+	private Tableau2x<Block<T>> monTableau;
 	private int taille;
+	private int capa;
 	
 	/**
 	 * le constructeur
@@ -23,21 +24,20 @@ public class TableauBlock<T> implements Tableau<T>
 	 */
 	public TableauBlock(int i)
 	{
-		assert i>0:"Merci  de donner une taille positive";
-		this.taille=0;
-//		monTableau=new Tableau2x[10]<Block<Integer>>(N) ;
-
-			monTableau=new Tableau2x<Block<Integer>>(i);
-
+		this(N,i);
 	}
 
 	/**
-	 * @param capinit
+	 * le constucteur
+	 * @param capinit capacite
 	 * @param i
 	 */
 	public TableauBlock(int capinit, int i)
 	{
-		// TODO Auto-generated constructor stub
+		assert i>0 && capinit>0 : "Merci  de donner une taille positive";
+		this.taille=0;
+		monTableau=new Tableau2x<Block<T>>(i);
+		this.capa=capinit;
 	}
 
 	/* (non-Javadoc)
@@ -46,8 +46,7 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public int size()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return taille;
 	}
 
 	/* (non-Javadoc)
@@ -56,8 +55,7 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public boolean empty()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return taille==0;
 	}
 
 	/* (non-Javadoc)
@@ -66,7 +64,6 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public boolean full()
 	{
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -76,8 +73,8 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public T get(int i)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		assert i<taille:"boom";
+		return monTableau.get(i/capa).get(i%capa);
 	}
 
 	/* (non-Javadoc)
@@ -86,8 +83,8 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public void set(int i, T v)
 	{
-		// TODO Auto-generated method stub
-		
+		int numBloc=i/capa;
+		monTableau.get(numBloc).set(i%capa, v);
 	}
 
 	/* (non-Javadoc)
@@ -96,8 +93,15 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public void push_back(T x)
 	{
-		// TODO Auto-generated method stub
+		int positionBloc=taille/capa;
 		
+		if(monTableau.empty()||size()>=capa&&monTableau.get((size()/capa)-1).full())
+		{
+			monTableau.push_back(new Block<T>(capa));
+		}
+		
+		monTableau.get(positionBloc).push_back(x);
+		taille++;
 	}
 
 	/* (non-Javadoc)
@@ -106,8 +110,16 @@ public class TableauBlock<T> implements Tableau<T>
 	@Override
 	public void pop_back()
 	{
-		// TODO Auto-generated method stub
-		
+		assert !this.empty() : "C'est vide le tableau";
+		if(monTableau.get((taille-1)/capa).size()==1)
+		{
+			monTableau.pop_back();
+		}
+		else
+		{
+			monTableau.get((taille-1)/capa).pop_back();
+		}
+		taille--;
 	}
 
 }

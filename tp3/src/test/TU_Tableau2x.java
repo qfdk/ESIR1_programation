@@ -36,7 +36,7 @@ public class TU_Tableau2x extends ATU_Tableau {
     int capinit = 120;
     Tableau<Integer> b1 = makeTableau(capinit);
     // vérifier l'agrandissement de la capacité
-    for (int i = 0; i < 100*capinit; ++i) {
+    for (int i = 0; i <100*capinit; ++i) {
       b1.push_back(i);
       Assert.assertTrue("Erreur : le tableau ne devrait pas être plein, taille = " + b1.size(), !b1.full());
       Assert.assertTrue("Erreur : le tableau ne devrait pas être vide : " + b1.empty(), ! b1.empty());

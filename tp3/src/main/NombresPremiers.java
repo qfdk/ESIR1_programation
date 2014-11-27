@@ -42,7 +42,6 @@ public class NombresPremiers
 			Tableau<Integer> nombresPremiers)
 	{
 		assert nombresPremiers.empty() : "Le tableau doit etre initialement vide";
-
 		int i;
 		for(i=2;i<=n;i++)
 		{
