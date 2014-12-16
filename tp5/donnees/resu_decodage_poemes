@@ -1,0 +1,601 @@
+Donnez le nom du fichier à décoder, svp : poemes.txt.code
+Longueur du texte codé : 9352 octets
+Arbre de Huffman associé au texte poemes.txt.code
+<n,810> : 0000
+<i,831> : 0001
+<r,846> : 0010
+<d,419> : 00110
+<,,211> : 001110
+<E,51> : 00111100
+<â,13> : 0011110100
+<ù,13> : 0011110101
+<P,27> : 001111011
+<S,27> : 001111100
+<!,28> : 001111101
+<Q,28> : 001111110
+<F,7> : 00111111100
+<î,7> : 00111111101
+<ô,7> : 00111111110
+<;,8> : 00111111111
+<u,849> : 0100
+<t,872> : 0101
+<e,1807> : 011
+<',231> : 100000
+<g,117> : 1000010
+<f,119> : 1000011
+<\n,520> : 10001
+<a,1001> : 1001
+<-,30> : 101000000
+<J,31> : 101000001
+<I,16> : 1010000100
+<:,4> : 101000010100
+<H,4> : 101000010101
+<k,4> : 101000010110
+<û,4> : 101000010111
+<M,33> : 101000011
+<h,131> : 1010001
+<q,131> : 1010010
+<L,66> : 10100110
+<à,35> : 101001110
+<",2> : 1010011110000
+<(,2> : 1010011110001
+<),2> : 1010011110010
+<V,2> : 1010011110011
+<Ç,2> : 1010011110100
+<É,2> : 1010011110101
+<Ô,2> : 1010011110110
+<ï,2> : 1010011110111
+<<,1> : 10100111110000
+<?,1> : 10100111110001
+<Y,1> : 10100111110010
+<ü,1> : 10100111110011
+<G,5> : 101001111101
+<U,5> : 101001111110
+<ç,5> : 101001111111
+<y,36> : 101010000
+<D,37> : 101010001
+<x,74> : 10101001
+<b,148> : 1010101
+<c,322> : 101011
+<s,1202> : 1011
+< ,2369> : 110
+<.,79> : 11100000
+<N,39> : 111000010
+<C,40> : 111000011
+<é,179> : 1110001
+<p,339> : 111001
+<l,706> : 11101
+<o,717> : 11110
+<v,180> : 1111100
+<B,11> : 11111010000
+<z,11> : 11111010001
+<è,23> : 1111101001
+<j,48> : 111110101
+<A,24> : 1111101100
+<O,24> : 1111101101
+<ê,24> : 1111101110
+<R,12> : 11111011110
+<T,12> : 11111011111
+<m,373> : 111111
+---------------------------------
+texte décodé:
+
+L'Albatros
+
+Souvent, pour s'amuser, les hommes d'équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l'azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à coté d'eux.
+
+Ce voyageur ailé, comme il est gauche et veule!
+Lui, naguère si beau, qu'il est comique et laid!
+L'un agace son bec avec un brûle-gueule,
+L'autre mime, en boitant, l'infirme qui volait!
+
+Le Poête est semblable au prince des nuées
+Qui hante la tempête et se rit de l'archer;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l'empêchent de marcher.
+
+Charles Baudelaire (Les fleurs du mal)
+
+Le Bateau Ivre
+
+Comme je descendais des Fleuves impassibles,
+Je ne me sentais plus tiré par les haleurs :
+Des Peaux-Rouges criards les avaient pris pour cibles
+Les ayant cloués nus aux poteaux de couleurs.
+
+J'étais insoucieux de tous les équipages,
+Porteur de blés flamands et de cotons anglais.
+Quand avec mes haleurs ont fini ces tapages
+Les Fleuves m'ont laissé descendre où je voulais.
+
+Dans les clapotements furieux des marées,
+Moi, l'autre hiver, plus sourd que les cerveaux d'enfants,
+Je courus ! Et les Péninsules démarrées
+N'ont pas subi tohu-bohus plus triomphants.
+
+La tempête a béni mes éveils maritimes.
+Plus léger qu'un bouchon j'ai dansé sur les flots
+Qu'on appelle rouleurs éternels de victimes,
+Dix nuits, sans regretter l'oeil niais des falots !
+
+Plus douce qu'aux enfants la chair des pommes sûres,
+L'eau verte pénétra ma coque de sapin
+Et des taches de vins bleus et des vomissures
+Me lava, dispersant gouvernail et grappin.
+
+Et dès lors, je me suis baigné dans le Poème
+De la Mer, infusé d'astres, et lactescent,
+Dévorant les azurs verts ; où, flottaison blême
+Et ravie, un noyé pensif parfois descend ;
+
+Où, teignant tout à coup les bleuités, délires
+Et rythmes lents sous les rutilements du jour,
+Plus fortes que l'alcool, plus vastes que nos lyres,
+Fermentent les rousseurs amères de l'amour !
+
+Je sais les cieux crevant en éclairs, et les trombes
+Et les ressacs et les courants : Je sais le soir,
+L'aube exaltée ainsi qu'un peuple de colombes,
+Et j'ai vu quelques fois ce que l'homme a cru voir !
+
+J'ai vu le soleil bas, taché d'horreurs mystiques,
+Illuminant de longs figements violets,
+Pareils à des acteurs de drames très-antiques
+Les flots roulant au loin leurs frissons de volets !
+
+J'ai rêvé la nuit verte aux neiges éblouies,
+Baiser montant aux yeux des mers avec lenteurs,
+La circulation des sèves inouïes
+Et l'éveil jaune et bleu des phosphores chanteurs !
+
+J'ai suivi, des mois pleins, pareilles aux vacheries
+Hystériques, la houle à l'assaut des récifs,
+Sans songer que les pieds lumineux des Maries
+Pussent forcer le mufle aux Océans poussifs !
+
+J'ai heurté, savez-vous, d'incroyables Florides
+Mêlant aux fleurs des yeux des panthères à peaux
+D'hommes ! Des arcs-en-ciel tendus comme des brides
+Sous l'horizon des mers, à de glauques troupeaux !
+
+J'ai vu fermenter les marais énormes, nasses
+Où pourrit dans les joncs tout un Léviathan !
+Des écroulement d'eau au milieu des bonacees,
+Et les lointains vers les gouffres cataractant !
+
+Glaciers, soleils d'argent, flots nacreux, cieux de braises !
+Échouages hideux au fond des golfes bruns
+Où les serpents géants dévorés de punaises
+Choient, des arbres tordus, avec de noirs parfums !
+
+J'aurais voulu montrer aux enfants ces dorades
+Du flot bleu, ces poissons d'or, ces poissons chantants.
+- Des écumes de fleurs ont bercé mes dérades
+Et d'ineffables vents m'ont ailé par instant.
+
+Parfois, martyr lassé des pôles et des zones,
+La mer dont le sanglot faisait mon roulis doux
+Montait vers moi ses fleurs d'ombres aux ventouses jaunes
+Et je restais, ainsi qu'une femme à genoux...
+
+Presque île, balottant sur mes bords les querelles
+Et les fientes d'oiseaux clabotteurs aux yeux blonds.
+Et je voguais lorsqu'à travers mes liens frêles
+Des noyés descendaient dormir à reculons !
+
+Or moi, bateau perdu sous les cheveux des anses,
+Jeté par l'ouragan dans l'éther sans oiseau,
+Moi dont les Monitors et les voiliers des Hanses
+N'auraient pas repéché la carcasse ivre d'eau ;
+
+Libre, fumant, monté de brumes violettes,
+Moi qui trouais le ciel rougeoyant comme un mur
+Qui porte, confiture exquise aux bons poètes,
+Des lichens de soleil et des morves d'azur ;
+
+Qui courais, taché de lunules électriques,
+Planche folle, escorté des hippocampes noirs,
+Quand les juillets faisaient couler à coups de trique
+Les cieux ultramarins aux ardents entonnoirs ;
+
+Moi qui tremblais, sentant geindre à cinquante lieues
+Le rut des Béhémots et les Maelstroms épais,
+Fileur éternel des immobilités bleues,
+Je regrette l'Europe aux anciens parapets !
+
+J'ai vu des archipels sidéraux ! et des îles
+Dont les cieux délirants sont ouverts au vogueur :
+- Est-ce en ces nuits sans fond que tu dors et t'exiles,
+Million d'oiseaux d'or, ô future vigueur ? -
+
+Mais, vrai, j'ai trop pleuré ! Les Aubes sont navrantes.
+Toute lune est atroce et tout soleil amer :
+L'âcre amour m'a gonflé de torpeurs enivrantes.
+Ô que ma quille éclate ! Ô que j'aille à la mer !
+
+Si je désire une eau d'Europe, c'est la flache
+Noire et froide où vers le crépuscule embaumé
+Un enfant accroupi plein de tristesses, lâche
+Un bateau frêle comme un papillon de mai.
+
+Je ne puis plus, baigné de vos langueurs, ô lames,
+Enlever leurs sillages aux porteurs de cotons,
+Ni traverser l'orgueil des drapeaux et des flammes,
+Ni nager sous les yeux horribles des pontons.
+
+Arthur Rimbaud
+
+Au Lecteur
+
+La sottise, l'erreur, le péche, la lésine,
+Occupent nos esprits et travaillent nos corps,
+Et nous alimentons nos aimables remords,
+Comme les mendiants nourrissent leur vermine.
+
+Nos péchés sont têtus, nos repentirs sont lâches;
+Nous nous faisons payer grassement nos aveux,
+Et nous rentrons gaiement dans le chemin bourbeux,
+Croyant par de vils pleurs laver toutes nos taches.
+
+Sur l'oreiller du mal c'est Satan Trismégiste
+Qui berce longuement notre esprit enchanté,
+Et le riche métal de notre volonté
+Est tout vaporisé par ce savant chimiste.
+
+C'est le Diable qui tient les fils qui nous remuent.
+Aux objets répugnants nous trouvons des appas;
+Chaque jour vers l'Enfer nous descendons d'un pas,
+Sans horreur, à travers des ténèbres qui puent.
+
+Ainsi qu'un débauché pauvre qui baise et mange
+Le sein martyrisé d'une antique catin,
+Nous volons au passage un plaisir clandestin
+Que nous pressons bien fort comme une vieille orange.
+
+Serré, fourmillant comme un million d'helminthes,
+Dans nos cerveaux ribote un peuple de démons,
+Et quand nous respirons, la Mort dans nos poumons
+Descend, fleuve invisible, avec de sourdes plaintes.
+
+Si le viol, le poison, le poignard, l'incendie,
+N'ont pas encore brodé de leurs plaisants dessins
+Le canevas banal de nos piteux destins,
+C'est que notre âme, hélas! n'est pas assez hardie.
+
+Mais parmi les chacals, les panthères, les lices,
+Les singes, les scorpions, les vautours, les serpents,
+Les monstres glapissants, hurlants, grognants, rampants,
+Dans la ménagerie infâme de nos vices,
+
+Il en est un plus laid, plus méchant, plus immonde!
+Quoiqu'il ne pousse ni grands gestes, ni grands cris,
+Il ferait volontiers de la terre un débris
+Et dans un bâillement avalerait le monde.
+
+C'est l'Ennui!- L'oeil chargé d'un pleur involontaire,
+Il rêve d'échafauds en fumant son houka.
+Tu le connais, lecteur, ce monstre délicat,
+Hypocrite lecteur, mon semblable, mon frère!
+
+Charles Baudelaire
+
+Bierstube Magie allemande
+
+Bierstube Magie allemande
+Et douces comme un lait d'amandes
+Mina Linda lèvres gourmandes
+qui tant souhaitent d'être crues
+A fredonner tout bas s'obstinent
+L'air Ach du lieber Augustin
+Qu'un passant siffle dans la rue
+
+Sofienstrasse Ma mémoire<
+Retrouve la chambre et l'armoire
+L'eau qui chante dans la bouilloire
+Les phrases des coussins brodés
+L'abat-jour de fausse opaline
+Le Toteninsel de Boecklin
+Et le peignoir de mousseline
+qui s'ouvre en donnant des idées
+
+Au plaisir prise et toujours prête
+O Gaense-Liesel des défaites
+Tout à coup tu tournais la tête
+Et tu m'offrais comme cela
+La tentation de ta nuque
+Demoiselle de Sarrebrück
+Qui descendais faire le truc
+Pour un morceau de chocolat
+
+Et moi pour la juger que suis-je
+Pauvres bonheurs pauvres vertiges
+Il s'est tant perdu de prodiges
+Que je ne m'y reconnais plus
+Rencontres Partances hâtives
+Est-ce ainsi que les hommes vivent
+Et leurs baisers au loin les suivent
+Comme des soleils révolus
+
+Tout est affaire de décors
+Changer de lit changer de corps
+A quoi bon puisque c'est encore
+Moi qui moi-même me trahis
+Moi qui me traîne et m'éparpille
+Et mon ombre se déshabille
+Dans les bras semblables des filles
+Où j'ai cru trouver un pays
+
+Coeur léger coeur changeant coeur lourd
+Le temps de rêver est bien court
+Que faut-il faire de mes jours
+Que faut-il faire de mes nuits
+Je n'avais amour ni demeure
+Nulle part où je vive ou meure
+Je passais comme la rumeur
+je m'endormais comme le bruit
+
+C'était un temps déraisonnable
+On avait mis les morts à table
+On faisait des châteaux de sable
+On prenait les loups pour des chiens
+Tout changeait de pôle et d'épaule
+La pièce était-elle ou non drôle
+Moi si j'y tenait mal mon rôle
+C'était de n'y comprendre rien
+
+Dans le quartier Hohenzollern
+Entre la Sarre et les casernes
+Comme les fleurs de la luzerne
+Fleurissaient les seins de Lola
+Elle avait un coeur d'hirondelle
+Sur le canapé du bordel
+Je venais m'allonger près d'elle
+Dans les hoquets du pianola
+
+Elle était brune et pourtant blanche
+Ses cheveux tombaient sur ses hanches
+Et la semaine et le dimanche
+Elle ouvrait à tous ses bras nus
+Elle avait des yeux de faïence
+Et travaillait avec vaillance
+Pour un artilleur de Mayence
+Qui n'en est jamais revenu
+
+Il est d'autres soldats en ville
+Et la nuit montent les civils
+Remets du rimmel à tes cils
+Lola qui t'en iras bientôt
+Encore un verre de liqueur
+Ce fut en avril à cinq heures
+Au petit jour que dans ton coeur
+Un dragon plongea son couteau
+
+Le ciel était gris de nuages
+Il y volait des oies sauvages
+Qui criaient la mort au passage
+Au-dessus des maisons des quais
+Je les voyais par la fenêtre
+Leur chant triste entrait dans mon être
+Et je croyais y reconnaître
+Du Rainer Maria Rilke
+
+Louis Aragon, Le Roman inachevé
+
+Les copains d'abord
+
+Non, ce n'était pas le radeau
+De la Méduse, ce bateau,
+Qu'on se le dis' au fond des ports,
+Dis' au fond des ports,
+Il naviguait en pèr' peinard
+Sur la grand' mare des canards,
+Et s'app'lait les Copains d'abord
+Les Copains d'abord.
+
+Ses fluctuat nec mergitur
+C'était pas d'la litteratur',
+N'en déplaise aux jeteurs de sort,
+Aux jeteurs de sort,
+Son capitaine et ses mat'lots
+N'étaient pas des enfants d'salauds,
+Mais des amis franco de port,
+Des copains d'abord.
+
+C'étaient pas des amis de lux',
+Des petits Castor et Pollux,
+Des gens de Sodome et Gomorrh',
+Sodome et Gomorrh',
+C'étaient pas des amis choisis
+Par Montaigne et La Boeti',
+Sur le ventre ils se tapaient fort,
+Les copains d'abord.
+
+C'étaient pas des anges non plus,
+L'Évangile, ils l'avaient pas lu,
+Mais ils s'aimaient tout's voil's dehors,
+Tout's voil's dehors,
+Jean, Pierre, Paul et compagnie,
+C'était leur seule litanie
+Leur Credo, leur Confiteor,
+Aux copains d'abord.
+
+Au moindre coup de Trafalgar,
+C'est l'amitié qui prenait l'quart,
+C'est elle qui leur montrait le nord,
+Leur montrait le nord.
+Et quand ils étaient en détresse,
+Qu'leurs bras lancaient des S.O.S.,
+On aurait dit les sémaphores,
+Les copains d'abord.
+
+Au rendez-vous des bons copains,
+Y'avait pas souvent de lapins,
+Quand l'un d'entre eux manquait a bord,
+C'est qu'il était mort.
+Oui, mais jamais, au grand jamais,
+Son trou dans l'eau n'se refermait,
+Cent ans après, coquin de sort !
+Il manquait encor'.
+
+Des bateaux j'en ai pris beaucoup,
+Mais le seul qui ait tenu le coup,
+Qui n'ai jamais viré de bord,
+Mais viré de bord,
+Naviguait en père peinard
+Sur la grand' mare des canards,
+Et s'app'lait les Copains d'abord
+Les Copains d'abord.
+
+Georges Brassens
+
+Ne me quitte pas
+
+Ne me quitte pas
+Il faut oublier
+Tout peut s'oublier
+Qui s'enfuit déjà
+Oublier le temps
+Des malentendus
+Et le temps perdu
+A savoir comment
+Oublier ces heures
+Qui tuaient parfois
+A coups de pourquoi
+Le coeur du bonheur
+
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+
+Moi je t'offrirai
+Des perles de pluie
+Venues de pays
+Où il ne pleut pas
+Je creuserai la terre
+Jusqu'après ma mort
+Pour couvrir ton corps
+D'or et de lumière
+Je ferai un domaine
+Où l'amour sera roi
+Où l'amour sera loi
+Où tu seras reine
+
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+
+Je t'inventerai
+Des mots insensés
+Que tu comprendras
+Je te parlerai
+De ces amants-là
+Qui ont vu deux fois
+Leurs coeurs s'embraser
+Je te raconterai
+L'histoire de ce roi
+Mort de n'avoir pas
+Pu te rencontrer
+
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+
+On a vu souvent
+Rejaillir le feu
+De l'ancien volcan
+Qu'on croyait trop vieux
+Il est paraît-il
+Des terres brûlées
+Donnant plus de blé
+Qu'un meilleur avril
+Et quand vient le soir
+Pour qu'un ciel flamboie
+Le rouge et le noir
+Ne s'épousent-ils pas
+
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+
+Ne me quitte pas
+Je ne vais plus pleurer
+Je ne vais plus parler
+Je me cacherai là
+A te regarder
+Danser et sourire
+Et à t'écouter
+Chanter et puis rire
+Laisse-moi devenir
+L'ombre de ton ombre
+L'ombre de ta main
+L'ombre de ton chien
+
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+Ne me quitte pas
+
+Jacques Brel
+
+Voyage au bout de la nuit (extraits)
+
+Les crépuscules dans cet enfer africain se révélaient fameux. On n'y
+coupait pas. Tragiques chaque fois comme d'énormes assassinats du
+soleil. Une immense chique. Seulement c'était beaucoup d'admiration pour
+un seul homme. Le ciel pendant une heure paradait tout giclé d'un bout à
+l'autre d'écarlate en délire, et puis le vert éclatait au milieu des
+arbres et montait du sol en traînées tremblantes jusqu'aux premières
+étoiles. Après ça, le gris reprenait tout l'horizon et puis le rouge
+encore, mais alors fatigué le rouge et pas pour longtemps. Ça se terminait
+ainsi. Toutes les couleurs retombaient en lambeaux, avachies sur la forêt
+comme des oripeaux après la centième. Chaque jour sur les six heures
+exactement que ça se passait.
+
+Une grenade a explosé dans la figure de Robinson, il ne voit plus et
+se rend compte qu'il restera aveugle sans doute jusqu'à la fin de sa
+vie...
+
+"Je vais me tuer!" qu'il me prévenait quand sa peine lui semblait trop
+grande. Et puis il parvenait tout de même à la porter sa peine un peu plus
+loin comme un poids bien trop lourd pour lui, infiniment inutile, peine
+sur une route où il ne trouvait personne à qui en parler, tellement
+qu'elle était énorme et multiple. Il n'aurait pas su l'expliquer, c'était
+une peine qui dépassait son instruction. Lâche qu'il était, je le savais,
+et lui aussi, de nature espérant toujours qu'on allait le sauver de la
+vérité, mais je commençais cependant, d'autre part, à me demander s'il
+existait quelque part, des gens vraiment lâches... On dirait qu'on peut
+toujours trouver pour n'importe quel homme une sorte de chose pour
+laquelle il est prêt à mourir tout de suite et bien content
+encore. Seulement son occasion ne se présente pas toujours de mourir
+joliment, l'occasion qui lui plairait. Alors il s'en va mourir comme il
+peut, quelque part... Il reste là l'homme sur la terre avec l'air d'un
+couillon en plus et d'un lâche pour tout le monde, pas convaincu
+seulement, voilà tout. C'est seulement en apparence la lâcheté. Robinson
+n'était pas prêt à mourir dans l'occasion qu'on lui présentait. Peut-être
+que présenté autrement, ça lui aurait beaucoup plu. En somme, la mort
+c'est un peu comme un mariage. Cette mort-là elle ne lui plaisait pas du
+tout et puis voilà. Rien a dire. Il faudrait qu'il se résigne à accepter
+son croupissement et sa détresse. Mais pour le moment il était encore tout
+occupé, tout passionné à s'en barbouiller l'âme d'une façon dégoûtante de
+son malheur et de sa détresse. Plus tard, il mettrait de l'ordre dans son
+malheur et alors une vraie vie nouvelle recommencerait. Faudrait bien.
+
+Il n'y a de terrible en nous et sur la terre et dans le ciel peut-être que
+ce qui n'a pas encore été dit. On ne sera tranquille que lorsque tout aura
+été dit, une bonne fois pour toutes, alors enfin on fera silence et on
+aura plus peur de se taire. Ça y sera.
+
+Celine

@@ -1,0 +1,24 @@
+Donnez le nom du fichier à décoder, svp : exemple.txt.code
+Longueur du texte codé : 30 octets
+Arbre de Huffman associé au texte exemple.txt.code
+<f,3>	: 0000
+<i,3>	: 0001
+<l,3>	: 0010
+<u,3>	: 0011
+<é,3>	: 0100
+<x,1>	: 01010
+<t,2>	: 01011
+< ,8>	: 011
+<e,8>	: 100
+<c,4>	: 1010
+<n,4>	: 1011
+<r,4>	: 1100
+<d,1>	: 110100
+<m,1>	: 110101
+<p,1>	: 110110
+<v,1>	: 110111
+<a,5>	: 1110
+<s,5>	: 1111
+
+texte décodé:
+les crépuscules dans cet enfer africain se révélaient fameux

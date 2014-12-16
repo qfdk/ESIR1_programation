@@ -1,0 +1,255 @@
+
+Table des fréquences
+ 10 : 
+ : 23
+ 32 :   : 108
+ 33 : ! : 3
+ 39 : ' : 11
+ 40 : ( : 1
+ 41 : ) : 1
+ 44 : , : 16
+ 45 : - : 2
+ 46 : . : 3
+ 59 : ; : 1
+ 65 : A : 2
+ 66 : B : 1
+ 67 : C : 3
+ 69 : E : 1
+ 76 : L : 8
+ 80 : P : 2
+ 81 : Q : 3
+ 83 : S : 2
+ 97 : a : 47
+ 98 : b : 9
+ 99 : c : 15
+100 : d : 19
+101 : e : 97
+102 : f : 4
+103 : g : 12
+104 : h : 11
+105 : i : 36
+108 : l : 38
+109 : m : 22
+110 : n : 33
+111 : o : 27
+112 : p : 10
+113 : q : 4
+114 : r : 34
+115 : s : 58
+116 : t : 34
+117 : u : 40
+118 : v : 10
+120 : x : 4
+121 : y : 2
+122 : z : 1
+224 : à : 1
+232 : è : 2
+233 : é : 9
+234 : ê : 2
+238 : î : 1
+251 : û : 1
+Arbre de Huffman associé au texte ../../albatros.txt
+<A,2>	: 00000000
+<P,2>	: 00000001
+<S,2>	: 00000010
+<y,2>	: 00000011
+<è,2>	: 00000100
+<ê,2>	: 00000101
+<(,1>	: 000001100
+<),1>	: 000001101
+<;,1>	: 000001110
+<B,1>	: 000001111
+<b,9>	: 000010
+<é,9>	: 000011
+<i,36>	: 0001
+<l,38>	: 0010
+<d,19>	: 00110
+<p,10>	: 001110
+<v,10>	: 001111
+<u,40>	: 0100
+<E,1>	: 010100000
+<z,1>	: 010100001
+<à,1>	: 010100010
+<î,1>	: 010100011
+<!,3>	: 01010010
+<.,3>	: 01010011
+<',11>	: 010101
+<m,22>	: 01011
+<
+,23>	: 01100
+<h,11>	: 011010
+<g,12>	: 011011
+<a,47>	: 0111
+<e,97>	: 100
+< ,108>	: 101
+<o,27>	: 11000
+<C,3>	: 11001000
+<Q,3>	: 11001001
+<û,1>	: 110010100
+<-,2>	: 110010101
+<f,4>	: 11001011
+<c,15>	: 110011
+<s,58>	: 1101
+<,,16>	: 111000
+<L,8>	: 1110010
+<q,4>	: 11100110
+<x,4>	: 11100111
+<n,33>	: 11101
+<r,34>	: 11110
+<t,34>	: 11111
+
+Table de codage associée au texte ../../albatros.txt
+<
+> : 01100
+< > : 101
+<!> : 01010010
+<'> : 010101
+<(> : 000001100
+<)> : 000001101
+<,> : 111000
+<-> : 110010101
+<.> : 01010011
+<;> : 000001110
+<A> : 00000000
+<B> : 000001111
+<C> : 11001000
+<E> : 010100000
+<L> : 1110010
+<P> : 00000001
+<Q> : 11001001
+<S> : 00000010
+<a> : 0111
+<b> : 000010
+<c> : 110011
+<d> : 00110
+<e> : 100
+<f> : 11001011
+<g> : 011011
+<h> : 011010
+<i> : 0001
+<l> : 0010
+<m> : 01011
+<n> : 11101
+<o> : 11000
+<p> : 001110
+<q> : 11100110
+<r> : 11110
+<s> : 1101
+<t> : 11111
+<u> : 0100
+<v> : 001111
+<x> : 11100111
+<y> : 00000011
+<z> : 010100001
+<à> : 010100010
+<è> : 00000100
+<é> : 000011
+<ê> : 00000101
+<î> : 010100011
+<û> : 110010100
+
+texte non codé:
+L'Albatros
+
+Souvent, pour s'amuser, les hommes d'équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l'azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à coté d'eux.
+
+Ce voyageur ailé, comme il est gauche et veule!
+Lui, naguère si beau, qu'il est comique et laid!
+L'un agace son bec avec un brûle-gueule,
+L'autre mime, en boitant, l'infirme qui volait!
+
+Le Poète est semblable au prince des nuées
+Qui hante la tempête et se rit de l'archer;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l'empêchent de marcher.
+
+Charles Baudelaire (Les fleurs du mal)
+
+Taille texte   compressé: 439
+Taux compression texte  : 56 %
+Taille fichier compressé: 686
+Taux compression fichier: 88 %
+Longueur du texte codé : 439 octets
+Arbre de Huffman associé au texte ../../albatros.txt.code
+<A,2>	: 00000000
+<P,2>	: 00000001
+<S,2>	: 00000010
+<y,2>	: 00000011
+<è,2>	: 00000100
+<ê,2>	: 00000101
+<(,1>	: 000001100
+<),1>	: 000001101
+<;,1>	: 000001110
+<B,1>	: 000001111
+<b,9>	: 000010
+<é,9>	: 000011
+<i,36>	: 0001
+<l,38>	: 0010
+<d,19>	: 00110
+<p,10>	: 001110
+<v,10>	: 001111
+<u,40>	: 0100
+<E,1>	: 010100000
+<z,1>	: 010100001
+<à,1>	: 010100010
+<î,1>	: 010100011
+<!,3>	: 01010010
+<.,3>	: 01010011
+<',11>	: 010101
+<m,22>	: 01011
+<
+,23>	: 01100
+<h,11>	: 011010
+<g,12>	: 011011
+<a,47>	: 0111
+<e,97>	: 100
+< ,108>	: 101
+<o,27>	: 11000
+<C,3>	: 11001000
+<Q,3>	: 11001001
+<û,1>	: 110010100
+<-,2>	: 110010101
+<f,4>	: 11001011
+<c,15>	: 110011
+<s,58>	: 1101
+<,,16>	: 111000
+<L,8>	: 1110010
+<q,4>	: 11100110
+<x,4>	: 11100111
+<n,33>	: 11101
+<r,34>	: 11110
+<t,34>	: 11111
+---------------------------------
+
+texte décodé:
+L'Albatros
+
+Souvent, pour s'amuser, les hommes d'équipage
+Prennent des albatros, vastes oiseaux des mers,
+Qui suivent, indolents compagnons de voyage,
+Le navire glissant sur les gouffres amers.
+
+A peine les ont-ils déposés sur les planches,
+Que ces rois de l'azur, maladroits et honteux,
+Laissent piteusement leurs grandes ailes blanches
+Comme des avirons traîner à coté d'eux.
+
+Ce voyageur ailé, comme il est gauche et veule!
+Lui, naguère si beau, qu'il est comique et laid!
+L'un agace son bec avec un brûle-gueule,
+L'autre mime, en boitant, l'infirme qui volait!
+
+Le Poète est semblable au prince des nuées
+Qui hante la tempête et se rit de l'archer;
+Exilé sur le sol au milieu des huées,
+Ses ailes de géant l'empêchent de marcher.
+
+Charles Baudelaire (Les fleurs du mal)

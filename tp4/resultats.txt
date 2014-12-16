@@ -1,0 +1,95 @@
+Tri insertion du fichier donnees_00097 (97 éléments)
+affectations :       2356
+comparaisons :       2257
+Durée        :          2 ms
+
+Tri tas du fichier donnees_00097 (97 éléments)
+affectations :        979
+comparaisons :       1013
+Durée        :          3 ms
+
+Tri rapide du fichier donnees_00097 (97 éléments)
+affectations :        468
+comparaisons :        701
+Durée        :          5 ms
+----------------------------------------
+
+Tri insertion du fichier donnees_01290 (1290 éléments)
+affectations :     417764
+comparaisons :     416470
+Durée        :         17 ms
+
+Tri tas du fichier donnees_01290 (1290 éléments)
+affectations :      18062
+comparaisons :      23290
+Durée        :          8 ms
+
+Tri rapide du fichier donnees_01290 (1290 éléments)
+affectations :       9606
+comparaisons :      14331
+Durée        :          5 ms
+----------------------------------------
+
+Tri insertion du fichier donnees_01290_trie (1290 éléments)
+affectations :       2578
+comparaisons :       1289
+Durée        :          0 ms
+
+Tri tas du fichier donnees_01290_trie (1290 éléments)
+affectations :      26884
+comparaisons :      32591
+Durée        :          2 ms
+
+Tri rapide du fichier donnees_01290_trie (1290 éléments)
+affectations :       3867
+comparaisons :     831405
+Durée        :         11 ms
+----------------------------------------
+
+Tri insertion du fichier donnees_50000 (50000 éléments)
+affectations :  624601317
+comparaisons :  624551304
+Durée        :       7399 ms
+
+Tri tas du fichier donnees_50000 (50000 éléments)
+affectations :     963988
+comparaisons :    1429382
+Durée        :         27 ms
+
+Tri rapide du fichier donnees_50000 (50000 éléments)
+affectations :     552174
+comparaisons :    1239402
+Durée        :         16 ms
+----------------------------------------
+
+Tri insertion du fichier donnees_50000_seq (50000 éléments)
+affectations :  499676348
+comparaisons :  499626348
+Durée        :       5934 ms
+
+Tri tas du fichier donnees_50000_seq (50000 éléments)
+affectations :    1146043
+comparaisons :    1612428
+Durée        :         26 ms
+
+Tri rapide du fichier donnees_50000_seq (50000 éléments)
+affectations :     547194
+comparaisons :    2102326
+Durée        :         18 ms
+----------------------------------------
+
+Tri insertion du fichier donnees_50000_trie (50000 éléments)
+affectations :      99998
+comparaisons :      49999
+Durée        :          1 ms
+
+Tri tas du fichier donnees_50000_trie (50000 éléments)
+affectations :    1558281
+comparaisons :    2041293
+Durée        :         29 ms
+
+Tri rapide du fichier donnees_50000_trie (50000 éléments)
+affectations :     149943
+comparaisons : 1242965124
+Durée        :       5566 ms
+----------------------------------------

@@ -1,0 +1,46 @@
+Donnez le nom du fichier à coder, svp : exemple.txt
+Arbre de Huffman associé au texte exemple.txt
+<f,3>	: 0000
+<i,3>	: 0001
+<l,3>	: 0010
+<u,3>	: 0011
+<é,3>	: 0100
+<x,1>	: 01010
+<t,2>	: 01011
+< ,8>	: 011
+<e,8>	: 100
+<c,4>	: 1010
+<n,4>	: 1011
+<r,4>	: 1100
+<d,1>	: 110100
+<m,1>	: 110101
+<p,1>	: 110110
+<v,1>	: 110111
+<a,5>	: 1110
+<s,5>	: 1111
+---------------------------------
+Table de codage associée au texte exemple.txt
+< > : 011
+<a> : 1110
+<c> : 1010
+<d> : 110100
+<e> : 100
+<f> : 0000
+<i> : 0001
+<l> : 0010
+<m> : 110101
+<n> : 1011
+<p> : 110110
+<r> : 1100
+<s> : 1111
+<t> : 01011
+<u> : 0011
+<v> : 110111
+<x> : 01010
+<é> : 0100
+Taille texte   compressé: 30
+Taux compression texte  : 50 %
+Taille fichier compressé: 132
+Taux compression fichier: 220 %
+durée codage            : 3 ms
+durée totale            : 34 ms
