@@ -7,34 +7,36 @@ package forfait;
 /**
  * @author qfdk Cree le 2015年1月6日
  */
-public class Forfait1H extends AbsForfait
+public class ForfaitIllimite extends AbsForfait
 {
 
 	/**
-	 * @param nom
+	 * consturcteur
+	 * @param nom ilimite
 	 */
-	private Forfait1H(String nom)
+	protected ForfaitIllimite(String nom)
 	{
 		super(nom);
 	}
 
 	/**
-	 * Forfait1H
+	 * ForfaitIlimite
 	 */
-	public Forfait1H()
+	public ForfaitIllimite()
 	{
-		this("Forfait1H");
+		this("ForfaitIllimite");
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see messagerie.AbsForfait#calculerPrix()
+	 * @see forfait.AbsForfait#calculerPrix()
 	 */
 	@Override
 	public float calculerPrix()
 	{
-		return 20;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

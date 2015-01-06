@@ -64,13 +64,11 @@ public class AbonneOperateur implements GestionCommunication
 
   boolean estHorsLigne()
   {
-    // TODO
     return true;
   }
 
   boolean estLibre()
   {
-    // TODO
     return true;
   }
 /**
