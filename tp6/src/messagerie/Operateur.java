@@ -7,6 +7,8 @@ import java.util.Map;
 
 import forfait.AbsForfait;
 import forfait.Forfait1H;
+import forfait.ForfaitAlActe;
+import forfait.ForfaitIllimite;
 import types.*;
 /**
  * Un Opérateur gère des abonnés et des communications
@@ -33,7 +35,7 @@ public class Operateur
 			     String nomForfait)
   {
 	  Telephone t=new Telephone(nomPersonne,nomForfait);
-	  abonnes.put(new AbonneOperateur(nomPersonne, this,new Forfait1H()), new Couple<String, String>(nomPersonne, nomForfait));
+	  abonnes.put(new AbonneOperateur(nomPersonne, this,proposeUnForfait(nomForfait)), new Couple<String, String>(nomPersonne, nomForfait));
     return t;
   }
 
@@ -81,6 +83,24 @@ public class Operateur
     // TODO
   }
 
+  /**
+ * @param nom du forfait
+ * @return un forfait
+ */
+@SuppressWarnings("static-method")
+public  AbsForfait proposeUnForfait(String nom)
+  {
+	  switch (nom)
+	{
+	case "Forfait1H":
+		return new Forfait1H();
+	case "ForfaitAlActe":
+		return new ForfaitAlActe();
+	case "ForfaitIllimite":
+		return new ForfaitIllimite();
+	}
+	return null;
+  }
 /**
  * Pour obtenir  la valeur de nom
  * @return la valeur de nom
