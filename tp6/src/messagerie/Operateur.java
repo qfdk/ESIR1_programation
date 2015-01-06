@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import forfait.AbsForfait;
+import forfait.Forfait1H;
 import types.*;
 /**
  * Un Opérateur gère des abonnés et des communications
@@ -31,7 +33,7 @@ public class Operateur
 			     String nomForfait)
   {
 	  Telephone t=new Telephone(nomPersonne,nomForfait);
-	  abonnes.put(new AbonneOperateur(nomForfait, this), new Couple<String, String>(nomPersonne, nomForfait));
+	  abonnes.put(new AbonneOperateur(nomPersonne, this,new Forfait1H()), new Couple<String, String>(nomPersonne, nomForfait));
     return t;
   }
 
@@ -98,7 +100,7 @@ public void setNom(String nom)
 }
 public void ajouterUnForfait(String nom)
 {
-	listForfait.add(?)
+	listForfait.add(new Forfait1H());
 }
 /* (non-Javadoc)
  * @see java.lang.Object#toString()

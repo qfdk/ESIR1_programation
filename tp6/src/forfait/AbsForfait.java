@@ -2,7 +2,7 @@
 /**
  * 
  */
-package messagerie;
+package forfait;
 
 /**
  * @author qfdk
@@ -10,12 +10,12 @@ package messagerie;
  */
 public abstract class AbsForfait
 {
-	private String nom;
+	protected String nom;
 
 	/**
 	 * @param nom
 	 */
-	public AbsForfait(String nom)
+	protected AbsForfait(String nom)
 	{
 		setNom(nom);
 	}
@@ -33,7 +33,7 @@ public abstract class AbsForfait
 	 * Pour modifier la valeur de nom
 	 * @param nom la nouvelle valeur de nom
 	 */
-	public void setNom(String nom)
+	protected void setNom(String nom)
 	{
 		this.nom = nom;
 	}
@@ -48,7 +48,7 @@ public abstract class AbsForfait
 		sb.append("Le forfait: ").append(getNom());
 		return sb.toString();
 	}
-	
+	public abstract float calculerPrix();
 }
 
 /*______________________________*/

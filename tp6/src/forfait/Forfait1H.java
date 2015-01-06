@@ -2,7 +2,8 @@
 /**
  * 
  */
-package messagerie;
+package forfait;
+
 
 /**
  * @author qfdk
@@ -14,9 +15,23 @@ public class Forfait1H extends AbsForfait
 	/**
 	 * @param nom
 	 */
-	public Forfait1H(String nom)
+	private Forfait1H(String nom)
 	{
 		super(nom);
+	}
+
+	public Forfait1H()
+	{
+		this("Forfait1H");
+	}
+	/* (non-Javadoc)
+	 * @see messagerie.AbsForfait#calculerPrix()
+	 */
+	@Override
+	public float calculerPrix()
+	{
+		// TODO Auto-generated method stub
+		return 20;
 	}
 
 }

@@ -1,6 +1,8 @@
 package messagerie;
 import java.util.Date;
 
+import forfait.AbsForfait;
+
 /**
  * Informations d'Abonné gérées par l'opérateur
  */
@@ -8,14 +10,15 @@ public class AbonneOperateur implements GestionCommunication
 {
 	private String nom;
 	private Operateur operateur;
-	
+	private AbsForfait forfait;
 	 /**
 	 * 
 	 */
-	public AbonneOperateur(String nom,Operateur o)
+	public AbonneOperateur(String nom,Operateur o,AbsForfait forfait)
 	{
 		setNom(nom);
 		setOperateur(o);
+		setForfait(forfait);
 	}
   //------------------------------------------------------------------------
   // méthodes de l'interface GestionCommunication
@@ -101,6 +104,24 @@ public Operateur getOperateur()
 public void setOperateur(Operateur operateur)
 {
 	this.operateur = operateur;
+}
+
+/**
+ * Pour obtenir  la valeur de forfait
+ * @return la valeur de forfait
+ */
+public AbsForfait getForfait()
+{
+	return forfait;
+}
+
+/**
+ * Pour modifier la valeur de forfait
+ * @param forfait la nouvelle valeur de forfait
+ */
+public void setForfait(AbsForfait forfait)
+{
+	this.forfait = forfait;
 }
 
 } // AbonneOperateur
