@@ -8,17 +8,16 @@ import java.util.Date;
 
 public class Telephone implements GestionCommunication
 {
-	private String nomPersonne;
-	private String nomForfait;
-	private boolean status=false;
+	@SuppressWarnings("unused")
+	private boolean status;
+	private AbonneOperateur abonne;
   /**
 	 * @param nomPersonne
 	 * @param nomForfait
 	 */
-	public Telephone(String nomPersonne, String nomForfait)
+	public Telephone( )
 	{
-		setNomForfait(nomForfait);
-		setNomPersonne(nomPersonne);
+		status=false;
 	}
 	
 //------------------------------------------------------------------------
@@ -62,38 +61,8 @@ public class Telephone implements GestionCommunication
   public void eteindre() {
 	 status=false;
   }
-/**
- * Pour obtenir  la valeur de nomPersonne
- * @return la valeur de nomPersonne
- */
-public String getNomPersonne()
-{
-	return nomPersonne;
-}
-/**
- * Pour modifier la valeur de nomPersonne
- * @param nomPersonne la nouvelle valeur de nomPersonne
- */
-public void setNomPersonne(String nomPersonne)
-{
-	this.nomPersonne = nomPersonne;
-}
-/**
- * Pour obtenir  la valeur de nomForfait
- * @return la valeur de nomForfait
- */
-public String getNomForfait()
-{
-	return nomForfait;
-}
-/**
- * Pour modifier la valeur de nomForfait
- * @param nomForfait la nouvelle valeur de nomForfait
- */
-public void setNomForfait(String nomForfait)
-{
-	this.nomForfait = nomForfait;
-}
+
+
 /* (non-Javadoc)
  * @see java.lang.Object#toString()
  */
@@ -101,7 +70,25 @@ public void setNomForfait(String nomForfait)
 public String toString()
 {
 	StringBuilder sb=new StringBuilder();
-	sb.append(getNomPersonne()).append(" utilise le forfait ").append(getNomForfait());
+	sb.append("- -");
 	return sb.toString();
+}
+
+/**
+ * Pour obtenir  la valeur de abonne
+ * @return la valeur de abonne
+ */
+public AbonneOperateur getAbonne()
+{
+	return abonne;
+}
+
+/**
+ * Pour modifier la valeur de abonne
+ * @param abonne la nouvelle valeur de abonne
+ */
+public void setAbonne(AbonneOperateur abonne)
+{
+	this.abonne = abonne;
 }
 } // Telephone

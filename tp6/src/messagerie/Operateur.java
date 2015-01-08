@@ -16,27 +16,61 @@ import types.*;
 public class Operateur
 {
 	private String nom;
-	private Map<AbonneOperateur, Couple<String,String>> abonnes;
+	private List<AbonneOperateur> abonnes;
 	private List<AbsForfait> listForfait;
+	private List<NumeroTelephone> listNum;
+	private List<AbstractCommunication> historique;
+	private List<Appel> appelsEnCours;
+	
   /**
 	 * @param string
 	 */
 	public Operateur(String string)
 	{
 		setNom(string);
-		abonnes=new HashMap<AbonneOperateur, Couple<String,String>>();
+		abonnes= new ArrayList<AbonneOperateur>();
 		listForfait=new ArrayList<AbsForfait>();
+		listNum=new ArrayList<NumeroTelephone>();
+		
+		historique=new ArrayList<AbstractCommunication>();
+		appelsEnCours=new ArrayList<Appel>();
 	}
-
+	
+	/**
+	 * @param nom
+	 * @param listNum
+	 * @param listClient
+	 * @param listforfait
+	 */
+	public Operateur(String nom,List<NumeroTelephone>listNum,List<AbonneOperateur>listClient){
+		setNom(nom);
+		this.listNum=listNum;
+		this.abonnes=listClient;
+//		this.listForfait=listforfait;
+		historique=new ArrayList<AbstractCommunication>();
+		appelsEnCours=new ArrayList<Appel>();
+	}
+	public List<AbonneOperateur> getA()
+	{
+		return abonnes;
+	}
 /**
    * Une personne souscrit un abonnement et reçoit un téléphone
    */
   public Telephone souscrire(String nomPersonne,
 			     String nomForfait)
   {
-	  Telephone t=new Telephone(nomPersonne,nomForfait);
-	  abonnes.put(new AbonneOperateur(nomPersonne, this,proposeUnForfait(nomForfait)), new Couple<String, String>(nomPersonne, nomForfait));
-    return t;
+	  AbonneOperateur client = new AbonneOperateur(nomPersonne);
+	  client.setForfait(proposeUnForfait(nomForfait));
+	  client.setOperateur(this);
+	  
+	  Telephone telephone=new Telephone();
+	  telephone.setAbonne(client);
+	  
+	  client.setTelephone(telephone);
+	  abonnes.add(client);
+	  
+    return telephone;
   }
 
   /**

@@ -11,14 +11,15 @@ public class AbonneOperateur implements GestionCommunication
 	private String nom;
 	private Operateur operateur;
 	private AbsForfait forfait;
+	private Telephone telephone;
+	private NumeroTelephone numeroTel;
+	
 	 /**
 	 * 
 	 */
-	public AbonneOperateur(String nom,Operateur o,AbsForfait forfait)
+	public AbonneOperateur(String nom)
 	{
 		setNom(nom);
-		setOperateur(o);
-		setForfait(forfait);
 	}
   //------------------------------------------------------------------------
   // méthodes de l'interface GestionCommunication
@@ -122,4 +123,49 @@ public void setForfait(AbsForfait forfait)
 	this.forfait = forfait;
 }
 
+/**
+ * Pour obtenir  la valeur de telephone
+ * @return la valeur de telephone
+ */
+public Telephone getTelephone()
+{
+	return telephone;
+}
+
+/**
+ * Pour modifier la valeur de telephone
+ * @param telephone la nouvelle valeur de telephone
+ */
+public void setTelephone(Telephone telephone)
+{
+	this.telephone = telephone;
+}
+
+/**
+ * Pour obtenir  la valeur de numeroTel
+ * @return la valeur de numeroTel
+ */
+public NumeroTelephone getNumeroTel()
+{
+	return numeroTel;
+}
+
+/**
+ * Pour modifier la valeur de numeroTel
+ * @param numeroTel la nouvelle valeur de numeroTel
+ */
+public void setNumeroTel(NumeroTelephone numeroTel)
+{
+	this.numeroTel = numeroTel;
+}
+
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString()
+{
+	
+	return getNom()+" " +getNumeroTel();
+}
 } // AbonneOperateur
