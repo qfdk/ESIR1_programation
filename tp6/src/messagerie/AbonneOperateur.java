@@ -13,6 +13,8 @@ public class AbonneOperateur implements GestionCommunication
 	private AbsForfait forfait;
 	private Telephone telephone;
 	private NumeroTelephone numeroTel;
+	private BoiteSMS boiteSMS;
+	private BoiteVocale boiteVocale;
 	
 	 /**
 	 * 
@@ -65,12 +67,16 @@ public class AbonneOperateur implements GestionCommunication
 
   boolean estHorsLigne()
   {
-    return true;
+	  return telephone.getStatus();
   }
 
   boolean estLibre()
   {
-    return true;
+	  if(!estHorsLigne())
+	  {
+//		  if(operateur.get)
+	  }
+	 return false;
   }
 /**
  * Pour obtenir  la valeur de nom
@@ -167,5 +173,41 @@ public String toString()
 {
 	
 	return getNom()+" " +getNumeroTel();
+}
+
+/**
+ * Pour obtenir  la valeur de boiteSMS
+ * @return la valeur de boiteSMS
+ */
+public BoiteSMS getBoiteSMS()
+{
+	return boiteSMS;
+}
+
+/**
+ * Pour modifier la valeur de boiteSMS
+ * @param boiteSMS la nouvelle valeur de boiteSMS
+ */
+public void setBoiteSMS(BoiteSMS boiteSMS)
+{
+	this.boiteSMS = boiteSMS;
+}
+
+/**
+ * Pour obtenir  la valeur de boiteVocale
+ * @return la valeur de boiteVocale
+ */
+public BoiteVocale getBoiteVocale()
+{
+	return boiteVocale;
+}
+
+/**
+ * Pour modifier la valeur de boiteVocale
+ * @param boiteVocale la nouvelle valeur de boiteVocale
+ */
+public void setBoiteVocale(BoiteVocale boiteVocale)
+{
+	this.boiteVocale = boiteVocale;
 }
 } // AbonneOperateur

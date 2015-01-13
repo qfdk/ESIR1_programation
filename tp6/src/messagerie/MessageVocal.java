@@ -6,15 +6,15 @@ package messagerie;
 
 /**
  * @author qfdk
- * Cree le 2015年1月6日
+ * Cree le 2015年1月13日
  */
-public class MessageSMS extends AbstractMessage
+public class MessageVocal extends AbstractMessage
 {
 
 	/**
 	 * @param com
 	 */
-	protected MessageSMS(AbstractCommMessage com)
+	protected MessageVocal(AbstractCommMessage com)
 	{
 		super(com);
 	}

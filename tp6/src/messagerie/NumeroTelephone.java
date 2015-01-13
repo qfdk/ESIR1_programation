@@ -12,6 +12,10 @@ public class NumeroTelephone
 {
 	private String num;
 	private AbonneOperateur abonne;
+	
+	/**
+	 * @param numero
+	 */
 	public NumeroTelephone(String numero)
 	{
 		setNum(numero);
@@ -47,6 +51,16 @@ public class NumeroTelephone
 	public void setAbonne(AbonneOperateur abonne)
 	{
 		this.abonne = abonne;
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder();
+		sb.append(abonne.getNom())
+		.append("(").append(getNum()).append("),")
+		.append("(").append(abonne.getForfait()).append(")");
+		return sb.toString();
 	}
 }
 

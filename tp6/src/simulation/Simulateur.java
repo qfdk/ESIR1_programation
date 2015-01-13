@@ -27,13 +27,16 @@ public class Simulateur
 
 		String[] lesForfaits =
 		{ "illimite", "1h", "acte", };
+		
 		// SDD pour mémoriser les téléphones
 		Map<String, Telephone> lesTelephones = new TreeMap<String, Telephone>();
+		
 		// générateur de nombres aléatoires
 		Random generateurAleatoire = new Random();
 		// souscrire quelques abonnements
 		// créer un opérateur
 		Operateur breizhtel = new Operateur("BreizhTel");
+		
 		for (int i = 0; i < noms.length; ++i)
 		{
 			try
@@ -41,6 +44,7 @@ public class Simulateur
 				Telephone newtel = breizhtel.souscrire(noms[i],
 						lesForfaits[generateurAleatoire
 								.nextInt(lesForfaits.length)]);
+				
 				lesTelephones.put(noms[i], newtel);
 			} catch (Exception e)
 			{

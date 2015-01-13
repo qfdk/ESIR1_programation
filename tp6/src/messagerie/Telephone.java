@@ -11,6 +11,7 @@ public class Telephone implements GestionCommunication
 	@SuppressWarnings("unused")
 	private boolean status;
 	private AbonneOperateur abonne;
+	private BoiteSMS boiteSMS;
   /**
 	 * @param nomPersonne
 	 * @param nomForfait
@@ -19,14 +20,17 @@ public class Telephone implements GestionCommunication
 	{
 		status=false;
 	}
-	
+	public boolean getStatus()
+	{
+		return this.status;
+	}
 //------------------------------------------------------------------------
   // méthodes de l'interface GestionCommunication
   //------------------------------------------------------------------------
   @Override
   public boolean appeler(String numero, String msgVocalSiOccupe, Date dateDebut)
   {
-    // TODO
+    System.out.println(numero+"-->"+dateDebut);    
     return false;
   }
   @Override
@@ -55,10 +59,16 @@ public class Telephone implements GestionCommunication
   // méthodes propres
   //------------------------------------------------------------------------
 
-  public void allumer() {
+  /**
+ * 
+ */
+public void allumer() {
     status=true;
     }
-  public void eteindre() {
+  /**
+ * 
+ */
+public void eteindre() {
 	 status=false;
   }
 
@@ -91,4 +101,21 @@ public void setAbonne(AbonneOperateur abonne)
 {
 	this.abonne = abonne;
 }
+/**
+ * Pour obtenir  la valeur de boiteSMS
+ * @return la valeur de boiteSMS
+ */
+public BoiteSMS getBoiteSMS()
+{
+	return boiteSMS;
+}
+/**
+ * Pour modifier la valeur de boiteSMS
+ * @param boiteSMS la nouvelle valeur de boiteSMS
+ */
+public void setBoiteSMS(BoiteSMS boiteSMS)
+{
+	this.boiteSMS = boiteSMS;
+}
+
 } // Telephone

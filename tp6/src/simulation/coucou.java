@@ -25,15 +25,27 @@ public class coucou
 
 		ArrayList <AbonneOperateur> listeAb= new ArrayList <AbonneOperateur> ();
         ArrayList <NumeroTelephone> listeNum=new ArrayList <NumeroTelephone> ();
-        
-        Operateur Vous= new Operateur("coucou",listeNum,listeAb);
-       
+        listeNum.add(new NumeroTelephone("123"));
+        listeNum.add(new NumeroTelephone("345"));
+        listeNum.add(new NumeroTelephone("3455"));
+//        Operateur Vous= new Operateur("coucou",listeNum,listeAb);
+        Operateur Vous= new Operateur("coucou");
+		String[] noms =
+		{ "Samuel", // +33(0)700000001
+				"Sébastien", // 2
+				"Aurélie", // 3
+				"Léa", // 4
+				"Pierre", // 5
+				"Géraldine", // 6
+				"Bastien", // 7
+				"Claude", // 8
+		};
         // add some subscribers to the list for the operator
-        for (int i=0; i<10;i=i+1){
-                Vous.souscrire("Sébastien", "Forfait1H");
+        for (int i=0; i<3;i++){
+                Vous.souscrire(noms[i], "Forfait1H");
         }// create 10 subscriber having the "A l'acte" package
         
-        for(AbonneOperateur a: Vous.getA())
+        for(AbonneOperateur a: Vous.getListAbonnes())
         {
         	System.out.println(a);
         }
