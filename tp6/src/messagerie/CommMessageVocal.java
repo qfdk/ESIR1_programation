@@ -28,8 +28,7 @@ public class CommMessageVocal extends AbstractCommMessage
 		sb.append(appele.getNum()).append("--")
 		.append("VOC").append("--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
-		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--")
-		.append("gratuit");
+		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")");
 		return sb.toString();
 	}
 }

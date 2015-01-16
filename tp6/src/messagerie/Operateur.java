@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.text.StyleContext.SmallAttributeSet;
+
 import forfait.AbsForfait;
 import forfait.Forfait1H;
 import forfait.ForfaitAlActe;
@@ -116,20 +118,21 @@ public class Operateur
 			String numeroDestinataire, String msgVocal, Date dateAppel)
 	{
 		int positon =rechercherNumero(numeroDestinataire);
-		Scanner scanner=new Scanner(System.in);
 		if(positon!=-1&&positon<getNbClient())
 		{
 			AbonneOperateur recepteur=abonnes.get(positon);
-			historique.put(emetteur, new ArrayList<AbstractCommunication>());
 			if(recepteur.estLibre()&&recepteur.accepterAppel(emetteur.getNumeroTel().getNum()))
 			{
+				System.out.println("Apple en cours ....");
 				tmpAppel=new Appel(emetteur, recepteur, dateAppel);
-				historique.get(emetteur).add(tmpAppel);
+				ajouterHisto(emetteur, tmpAppel);
 				appelsEnCours.put(emetteur, tmpAppel);
+				appelsEnCours.put(recepteur, tmpAppel);
 				return true;
 			}
 			else {
 				System.out.println("recepteur non libre, il faut envoyer SMS");
+				System.out.println("Patientez environ, 3 S ....");
 				posterMessageVocal(emetteur, numeroDestinataire, msgVocal, dateAppel);
 				posterSMS(emetteur, numeroDestinataire, "Vous avez recu un MessageVocal", dateAppel);
 				return false;
@@ -138,6 +141,17 @@ public class Operateur
 		return false;
 	}
 	
+	private void ajouterHisto(AbonneOperateur client,AbstractCommunication comm)
+	{
+		if(historique.containsKey(client))
+		{
+			historique.get(client).add(comm);
+		}else{
+			historique.put(client, new ArrayList<AbstractCommunication>());
+			historique.get(client).add(comm);
+		}
+	
+	}
 	private int rechercherNumero(String num)
 	{
 		int position=0;
@@ -171,7 +185,8 @@ public class Operateur
 			return ;
 		}
 		CommSMS tmp=new CommSMS(emetteur, abonnes.get(position), dateEnvoi);
-		historique.get(emetteur).add(tmp);
+//		historique.get(emetteur).add(tmp);
+		ajouterHisto(emetteur, tmp);
 		abonnes.get(position).getBoiteSMS().ajouterSMS(new MessageSMS(tmp,sms));
 	}
 
@@ -186,13 +201,15 @@ public class Operateur
 	public void posterMessageVocal(AbonneOperateur emetteur, String numeroDestinataire,
 			String mv, Date dateEnvoi)
 	{
+		
 		int position=rechercherNumero(numeroDestinataire);
 		if(position<0||position>getNbClient())
 		{
 			return ;
 		}
 		CommMessageVocal tmp=new CommMessageVocal(emetteur, abonnes.get(position), dateEnvoi);
-		historique.get(emetteur).add(tmp);
+		ajouterHisto(emetteur, tmp);
+//		historique.get(emetteur).add(tmp);
 		abonnes.get(position).getBoiteVocale().ajouterMessageVocal(new MessageVocal(tmp,mv));
 		
 	}
@@ -204,12 +221,31 @@ public class Operateur
 	 */
 	public void cloreAppel(AbonneOperateur abonne, Date fin)
 	{
-		AbstractCommunication abs=historique.get(abonne).get(historique.get(abonne).size()-1);
-		if(abs instanceof Appel)
+		Appel appel=appelsEnCours.get(abonne);
+		if(!abonne.estLibre())
+		if(appel.getEmeteur().equals(abonne))
 		{
-			((Appel) abs).setDateCom(fin);
 			appelsEnCours.remove(abonne);
+			appelsEnCours.remove(appel.getRecepteur().getTelephone().getAbonne());
+			appel.setDateFinComm(fin);
+			historique.get(abonne).remove(nbHisto(abonne)-1);
+			historique.get(abonne).add(appel);
+		}else
+		{
+			appelsEnCours.remove(abonne);
+			appelsEnCours.remove(appel.getEmeteur().getTelephone().getAbonne());
 		}
+		
+		System.out.println(abonne.getNom()+ " clore cet appel.");
+	}
+
+	/**
+	 * @param abonne
+	 * @return
+	 */
+	private int nbHisto(AbonneOperateur abonne)
+	{
+		return historique.get(abonne).size();
 	}
 
 	/**
@@ -243,7 +279,7 @@ public class Operateur
 		case "ForfaitIllimite":
 			return new ForfaitIllimite();
 		}
-	return new Forfait1H();
+	return new ForfaitIllimite();
 	}
 
 	/**
@@ -276,7 +312,7 @@ public class Operateur
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(getNom()).append("->");
+		sb.append(getNom());
 		return sb.toString();
 	}
 
@@ -298,15 +334,7 @@ public class Operateur
 	 */
 	public boolean estApplesEnCours(AbonneOperateur moi)
 	{
-		Collection<Appel> appels=appelsEnCours.values();
-		for(Appel a:appels)
-		{
-			if(a.getEmeteur().equals(moi)||a.getRecepteur().equals(moi))
-			{
-				return true;
-			}
-		}
-		return false;
+		return appelsEnCours.containsKey(moi);
 	}
 
 	/**
@@ -316,7 +344,7 @@ public class Operateur
 	{
 		for (AbonneOperateur a:abonnes)
 		{
-			System.out.println("-----FAC de "+a.getNom()+"------");
+			System.out.println("-----FAC de "+a.getNom()+"("+a.getForfait()+")------");
 			List<AbstractCommunication> maListe=historique.get(a);
 			if(maListe!=null)
 			{
@@ -332,20 +360,88 @@ public class Operateur
 						System.out.println(abs);
 					}
 				}
-				System.out.println("Total: "+a.getForfait());
+				System.out.println("Total: "+calculerPrix(a)+" EURO");
+				System.out.println("**********************************");
 			}else{
-				System.out.println("-> PAS DE FACTURE");
+				System.out.println("->Pas de communication histo");
+				System.out.println("Total: "+calculerPrix(a)+" EURO");
+				System.out.println("**********************************");
 			}
 		}
 	}
 	
+	@SuppressWarnings("static-method")
+	private float getPrixForfait1H(List<AbstractCommunication> histo)
+	{
+		float minAppel=0;
+		int nbSMS=0;
+		int nbMV=0;
+		if(histo!=null)
+		{
+			for(AbstractCommunication abs:histo)
+			{
+				if(abs instanceof Appel){
+					minAppel=minAppel+((Appel) abs).getDuree()/60;
+					System.out.println(((Appel) abs).getDuree());
+				}
+				if(abs instanceof CommSMS){
+					nbSMS++;
+				}
+				if(abs instanceof CommMessageVocal){
+					nbMV++;
+				}
+			}
+		}
+//		System.out.println(minAppel);
+		return Forfait1H.PRIX_BASE+Forfait1H.PRIX_MV*nbMV+Forfait1H.PRIX_SMS*nbSMS+minAppel%Forfait1H.F1H*Forfait1H.PRIX_APPEL;
+	}
+	
+	@SuppressWarnings("static-method")
+	private float getPrixForfaitAlActe(List<AbstractCommunication> histo)
+	{
+		int nbAppel=0;
+		int nbSMS=0;
+		int nbMV=0;
+		if(histo!=null)
+		{
+			for(AbstractCommunication abs:histo)
+			{
+				if(abs instanceof Appel){
+					nbAppel++;
+				}
+				if(abs instanceof CommSMS){
+					nbSMS++;
+				}
+				if(abs instanceof CommMessageVocal){
+					nbMV++;
+				}
+			}
+		}
+		return nbAppel*ForfaitAlActe.PRIX_APPEL+nbMV*ForfaitAlActe.PRIX_MV+nbSMS*ForfaitAlActe.PRIX_SMS;
+	}
+	private float calculerPrix(AbonneOperateur client)
+	{
+		switch (client.getForfait().getNom())
+		{
+		case "Forfait1H":
+			return getPrixForfait1H(historique.get(client));
+		case "ForfaitAlActe":
+			return getPrixForfaitAlActe(historique.get(client));
+		case "ForfaitIllimite":
+			return ForfaitIllimite.PRIX_BASE;
+		}
+		return ForfaitIllimite.PRIX_BASE;
+	}
+	
 	/**
 	 * facturation pour un ab
-	 * @param nom nom ab
+	 * @param client nom ab
 	 */
-	public void facturation(AbonneOperateur nom)
+	public void facturation(AbonneOperateur client)
 	{
-			for(AbstractCommunication abs:historique.get(nom))
+		System.out.println("-----FAC de "+client.getNom()+"("+client.getForfait()+")------");
+		if(historique.get(client)!=null)
+			for(AbstractCommunication abs:historique.get(client))
 			{
 				if(abs instanceof Appel){
 					System.out.println(abs);
@@ -357,7 +453,9 @@ public class Operateur
 					System.out.println(abs);
 				}
 			}
+		System.out.println("Total: "+calculerPrix(client)+" EURO, "+client.getForfait());
 	}
+
 	
 	
 } // Operateur

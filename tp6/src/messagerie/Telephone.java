@@ -1,5 +1,4 @@
 package messagerie;
-import java.io.ObjectInputStream.GetField;
 import java.util.Date;
 
 /**
@@ -21,9 +20,6 @@ public class Telephone implements GestionCommunication
 		boiteSMS=new BoiteSMS();
 	}
 	
-
-
-
 //------------------------------------------------------------------------
   // méthodes de l'interface GestionCommunication
   //------------------------------------------------------------------------
@@ -40,13 +36,12 @@ public class Telephone implements GestionCommunication
   @Override
   public void recevoirSMS(MessageSMS message)
   {
-    // TODO
+	  abonne.recevoirSMS(message);
   }
   @Override
   public boolean accepterAppel(String numeroAppelant)
   {
-    // TODO
-    return false;
+	  return accepterAppel(numeroAppelant);
   }
   @Override
   public void cloreAppel(Date fin)
@@ -58,19 +53,22 @@ public class Telephone implements GestionCommunication
   // méthodes propres
   //------------------------------------------------------------------------
 
-  /**
+/**
  * 
  */
 public void allumer() {
     setEteind(false);
     abonne.setStatTel(true);
+    abonne.synchroniser();
+    System.out.println(abonne.getNom()+" ("+abonne.getNumeroTel()+")-->allumer");
     }
   /**
  * 
  */
 public void eteindre() {
 	 setEteind(true);
-	 abonne.setStatTel(false);
+	 abonne.setStatTel(false); 
+	 System.out.println(abonne.getNom()+": Tel-->eteindre");
   }
 
 

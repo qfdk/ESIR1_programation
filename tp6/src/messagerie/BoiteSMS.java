@@ -1,4 +1,4 @@
-/*______________________________*/
+/* ______________________________ */
 /**
  * 
  */
@@ -8,19 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author qfdk
- * Cree le 2015年1月13日
+ * @author qfdk Cree le 2015年1月13日
  */
 public class BoiteSMS
 {
 	private List<MessageSMS> listmeSms;
-	
+
 	/**
 	 * 
 	 */
 	public BoiteSMS()
 	{
-		listmeSms=new ArrayList<MessageSMS>();
+		listmeSms = new ArrayList<MessageSMS>();
 	}
 
 	/**
@@ -28,10 +27,12 @@ public class BoiteSMS
 	 */
 	public BoiteSMS(List<MessageSMS> list)
 	{
-		listmeSms=list;
+		listmeSms = list;
 	}
+
 	/**
-	 * Pour obtenir  la valeur de listmeSms
+	 * Pour obtenir la valeur de listmeSms
+	 * 
 	 * @return la valeur de listmeSms
 	 */
 	public List<MessageSMS> getListmeSms()
@@ -41,23 +42,34 @@ public class BoiteSMS
 
 	/**
 	 * Pour modifier la valeur de listmeSms
+	 * 
 	 * @param listmeSms la nouvelle valeur de listmeSms
 	 */
 	public void setListmeSms(List<MessageSMS> listmeSms)
 	{
 		this.listmeSms = listmeSms;
 	}
-	
+
 	public void ajouterSMS(MessageSMS sms)
 	{
 		listmeSms.add(sms);
 	}
+
 	public void supprimerSMS()
 	{
 		listmeSms.clear();
 	}
+
+	public void lireSMS()
+	{
+		for (MessageSMS m : listmeSms)
+		{
+			System.out.println(m);
+		}
+
+	}
 }
 
-/*______________________________*/
-/*___________FIN_______________*/
-/*______________________________*/
+/* ______________________________ */
+/* ___________FIN_______________ */
+/* ______________________________ */

@@ -32,8 +32,7 @@ public class CommSMS extends AbstractCommMessage
 		sb.append(appele.getNum()).append("--")
 		.append("SMS").append("--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
-		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--")
-		.append("0.1");
+		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")");
 		return sb.toString();
 	}
 }

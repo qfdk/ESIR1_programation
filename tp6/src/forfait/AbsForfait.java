@@ -48,13 +48,7 @@ public abstract class AbsForfait
 		sb.append("Le forfait: ").append(getNom());
 		return sb.toString();
 	}
-	/**
-	 * la methode pour calculer le prix
-	 * @return le prix
-	 */
-	public abstract float getPrixSMS();
-	public abstract float getPrixAppel();
-	public abstract boolean estHorsforfait();
+
 }
 
 /*______________________________*/

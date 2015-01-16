@@ -29,34 +29,6 @@ public class ForfaitIllimite extends AbsForfait
 		this("ForfaitIllimite");
 	}
 
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixSMS()
-	 */
-	@Override
-	public float getPrixSMS()
-	{
-		return 0;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixAppel()
-	 */
-	@Override
-	public float getPrixAppel()
-	{
-		return 0;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#estHorsforfait()
-	 */
-	@Override
-	public boolean estHorsforfait()
-	{
-		return false;
-	}
-
 }
 
 /* ______________________________ */

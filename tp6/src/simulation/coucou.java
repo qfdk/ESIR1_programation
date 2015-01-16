@@ -65,13 +65,14 @@ public class coucou
     	System.out.println(a);
     	a.getTelephone().allumer();
     	b.getTelephone().allumer();
-    	System.out.println(a.appeler(b.getNumeroTel().getNum(), "zzz", new Date()));
+    	a.appeler(b.getNumeroTel().getNum(), "zzz", new Date());
     	Thread.sleep(3000);
-    	a.cloreAppel(new Date());
+    	a.cloreAppel(new Date(115, 0, 16,22,0));
     	a.envoyerSMS(b.getNumeroTel().getNum(), "coucou", new Date());
     	System.out.println("----");
-//        Vous.facturation(a);
         Vous.facturation(a);
+        Vous.facturation(b);
+        
         b.synchroniser();
     	System.out.println("----");
         for(MessageSMS s:b.getBoiteSMS().getListmeSms())

@@ -1,5 +1,6 @@
 package messagerie;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -54,8 +55,7 @@ public class AbonneOperateur implements GestionCommunication
 	public boolean appeler(String numero, String msgVocalSiOccupe,
 			Date dateDebut)
 	{
-		System.out.println("Tentative Appel de " + this + " ---->" + numero
-				+ " en date du " + dateDebut);
+		System.out.println(this.getNom()+" ("+this.getNumeroTel()+")-->appeler a " + numero);
 		return operateur.etablirCommunication(this, numero,
 				msgVocalSiOccupe, dateDebut);
 	}
@@ -73,15 +73,18 @@ public class AbonneOperateur implements GestionCommunication
 		this.synchroniser();
 	}
 
+	private static String lireCommand(Scanner s)
+	{
+		return s.nextLine();
+	}
 	@Override
 	public boolean accepterAppel(String numeroAppelant)
 	{
-		System.out.println("Vous voulez accepter l''appel de "+numeroAppelant);
-		Scanner scanner=new Scanner(System.in);
-		String tmp=scanner.nextLine();
-		scanner.close();
+		System.out.println("Vous voulez accepter l''appel de ("+numeroAppelant+"). (o/n)");
+		String tmp =lireCommand(new Scanner(System.in));
 		if(tmp.equals("y")||tmp.equals("o"))
 		{
+			System.out.println("accepter cet appel ...");
 			return true;
 		}
 		return false;

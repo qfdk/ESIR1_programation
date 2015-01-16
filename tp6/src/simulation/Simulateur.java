@@ -1,10 +1,12 @@
 package simulation;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
+import messagerie.MessageSMS;
 import messagerie.Operateur;
 import messagerie.Telephone;
 
@@ -56,46 +58,50 @@ public class Simulateur
 		// ------------------------------------------------------------------------
 		// À COMPLÉTER
 		// ------------------------------------------------------------------------
+		afficher("Allumer les tels", "Samuel,Bastien,Lea");
 		lesTelephones.get("Samuel").allumer();
 		lesTelephones.get("Bastien").allumer();
-		
+		lesTelephones.get("Léa").allumer();
+		afficher("Appel les autre", "Samuel->Bastien");
 		lesTelephones.get("Samuel").appeler(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
 				"Où c'est qu't'es ?", new Date());
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		afficher("Appel les autre", "Samuel clore l'apple ");
 		lesTelephones.get("Samuel").cloreAppel(new Date());
-//		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-//				"Léa, réponds, nom d'une pipe !",
-//				new Date(2012, 12, 13, 15, 45, 10));
-//		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-//				"Léa, alleeez, sois pas vache !",
-//				new Date(2012, 12, 13, 15, 46, 0));
-//		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-//				"Léa, je plaisantais !!!!!!!!!!",
-//				new Date(2012, 12, 13, 15, 46, 10));
-		lesTelephones.get("Léa").allumer();
-		System.out.println("\nÉtat de Léa: " + lesTelephones.get("Samuel"));
-		lesTelephones.get("Bastien").appeler(lesTelephones.get("Samuel").getAbonne().getNumeroTel().getNum(),
+		
+		System.out.println("---");
+		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
+				"Léa, réponds, nom d'une pipe !",
+				new Date(2012, 12, 13, 15, 45, 10));
+		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(),
+				"Léa, alleeez, sois pas vache !",
+				new Date(2012, 12, 13, 15, 46, 0));
+		lesTelephones.get("Léa").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
+				"Léa, je plaisantais !!!!!!!!!!",
+				new Date(2012, 12, 13, 15, 46, 10));
+		lesTelephones.get("Léa").appeler(lesTelephones.get("Samuel").getAbonne().getNumeroTel().getNum(),
 				"Où c'est qu't'es ?", new Date());
 		
-		Thread.sleep(4000);
-		lesTelephones.get("Bastien").cloreAppel(new Date());
+		lesTelephones.get("Léa").cloreAppel(new Date());
 		
-		
-		afficher("État 1", breizhtel);
-//		breizhtel.facturation(lesTelephones.get("Samuel").getAbonne());
-//		System.out.println("0000000000");
-		breizhtel.facturation();
 		
 		// ------------------------------------------------------------------------
 		// FACTURATION : À FAIRE
 		// ------------------------------------------------------------------------
 
+//		breizhtel.facturation(lesTelephones.get("Samuel").getAbonne());
+		breizhtel.facturation();
+		afficher("consulter le sms", "Syc Bastien");
+		lesTelephones.get("Bastien").getAbonne().synchroniser();
+		lesTelephones.get("Bastien").getAbonne().getBoiteSMS().lireSMS();
+		
 	}
 
 	// afficher l'état de la simulation
-	static void afficher(String msg, Operateur op)
+	static void afficher(String msg, Object op)
 	{
-		System.out.println(msg + "\n---------------------\n" + op
-				+ "---------------------\n");
+		System.out.println("");
+		System.out.println(msg + "\n---------"+op+"------------");
 	}
+	
 } // Simulateur

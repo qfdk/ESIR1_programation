@@ -10,7 +10,10 @@ package forfait;
  */
 public class ForfaitAlActe extends AbsForfait
 {
-
+	public static final float PRIX_BASE=40;
+	public static final float PRIX_MV=(float) 0.07;
+	public static final float PRIX_SMS=(float) 0.07;
+	public static final float PRIX_APPEL=(float) 0.15;
 	/**
 	 * @param nom
 	 */
@@ -25,33 +28,6 @@ public class ForfaitAlActe extends AbsForfait
 	public ForfaitAlActe()
 	{
 		this("ForfaitAlActe");
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixSMS()
-	 */
-	@Override
-	public float getPrixSMS()
-	{
-		return (float) 0.07;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixAppel()
-	 */
-	@Override
-	public float getPrixAppel()
-	{
-		return (float) 0.15;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#estHorsforfait()
-	 */
-	@Override
-	public boolean estHorsforfait()
-	{
-		return false;
 	}
 
 }

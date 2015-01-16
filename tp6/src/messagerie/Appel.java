@@ -13,16 +13,19 @@ import java.util.Date;
  */
 public class Appel extends AbstractCommunication
 {	
-	protected Appel(AbonneOperateur emetteur, AbonneOperateur recepteur,
-			Date dateD) {
-		super(emetteur, recepteur, dateD);
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
+	 * @param emetteur
+	 * @param recepteur
 	 * @param dateD
 	 */
-	
+	public Appel(AbonneOperateur emetteur, AbonneOperateur recepteur,
+			Date dateD) {
+		super(emetteur, recepteur, dateD);
+		setDateFinComm(dateD);
+		setEmeteur(emetteur);
+		setRecepteur(recepteur);
+	}
+
 
 	private AbonneOperateur emeteur,recepteur;
 	private Date finComm;
@@ -64,24 +67,24 @@ public class Appel extends AbstractCommunication
 		this.recepteur = recepteur;
 	}
 
-	/**
-	 * Pour obtenir  la valeur de dateCom
-	 * @return la valeur de dateCom
-	 */
-	public Date getDateCom()
-	{
-		return finComm;
-	}
 
 	/**
 	 * Pour modifier la valeur de dateCom
-	 * @param dateCom la nouvelle valeur de dateCom
+	 * @param dateFinComm la nouvelle valeur de dateCom
 	 */
-	public void setDateCom(Date dateCom)
+	public void setDateFinComm(Date dateFinComm)
 	{
-		this.finComm = dateCom;
+		this.finComm = dateFinComm;
 	}
 	
+	/**
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	public int getDuree()
+	{
+		return finComm.getSeconds()-debutComm.getSeconds();
+	}
 	/* (non-Javadoc)
 	 * @see messagerie.AbstractCommunication#toString()
 	 */
@@ -92,7 +95,7 @@ public class Appel extends AbstractCommunication
 		sb.append(appele.getNum()).append("--")
 		.append("APL").append("--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
-		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--");
+		.append(DateFormat.getDateTimeInstance().format(finComm)).append(")");
 		return sb.toString();
 	}
 }
