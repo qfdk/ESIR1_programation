@@ -4,28 +4,25 @@
  */
 package messagerie;
 
-import java.text.DateFormat;
-import java.util.Date;
+import javax.xml.crypto.Data;
 
 /**
  * @author qfdk
  * Cree le 2015年1月8日
  */
 public class Appel extends AbstractCommunication
-{	
-	protected Appel(AbonneOperateur emetteur, AbonneOperateur recepteur,
-			Date dateD) {
-		super(emetteur, recepteur, dateD);
-		// TODO Auto-generated constructor stub
-	}
-
+{
 	/**
 	 * @param dateD
 	 */
 	
+	public Appel(Data dateD)
+	{
+		super(dateD);
+	}
 
 	private AbonneOperateur emeteur,recepteur;
-	private Date finComm;
+	private Data finComm;
 	
 
 	/**
@@ -68,7 +65,7 @@ public class Appel extends AbstractCommunication
 	 * Pour obtenir  la valeur de dateCom
 	 * @return la valeur de dateCom
 	 */
-	public Date getDateCom()
+	public Data getDateCom()
 	{
 		return finComm;
 	}
@@ -77,23 +74,9 @@ public class Appel extends AbstractCommunication
 	 * Pour modifier la valeur de dateCom
 	 * @param dateCom la nouvelle valeur de dateCom
 	 */
-	public void setDateCom(Date dateCom)
+	public void setDateCom(Data dateCom)
 	{
 		this.finComm = dateCom;
-	}
-	
-	/* (non-Javadoc)
-	 * @see messagerie.AbstractCommunication#toString()
-	 */
-	@Override
-	public String toString()
-	{
-		StringBuilder sb=new StringBuilder();
-		sb.append(appele.getNum()).append("--")
-		.append("APL").append("--(")
-		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
-		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--");
-		return sb.toString();
 	}
 }
 

@@ -4,7 +4,10 @@
  */
 package messagerie;
 
-import javax.xml.crypto.Data;
+import java.text.DateFormat;
+import java.util.Date;
+
+import forfait.AbsForfait;
 
 /**
  * @author qfdk
@@ -13,14 +16,22 @@ import javax.xml.crypto.Data;
 public class CommMessageVocal extends AbstractCommMessage
 {
 
-	/**
-	 * @param dateD
-	 */
-	protected CommMessageVocal(Data dateD)
-	{
-		super(dateD);
+	protected CommMessageVocal(AbonneOperateur emetteur,
+			AbonneOperateur recepteur, Date dateD) {
+		super(emetteur, recepteur, dateD);
 	}
-
+	public String toString()
+	{
+		AbsForfait forfait=appelant.getAbonne().getForfait();
+	
+		StringBuilder sb=new StringBuilder();
+		sb.append(appele.getNum()).append("--")
+		.append("VOC").append("--(")
+		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
+		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--")
+		.append("gratuit");
+		return sb.toString();
+	}
 }
 
 /*______________________________*/

@@ -4,6 +4,8 @@
  */
 package messagerie;
 
+import java.util.Date;
+
 import javax.xml.crypto.Data;
 
 /**
@@ -13,13 +15,11 @@ import javax.xml.crypto.Data;
 public abstract class AbstractCommMessage extends AbstractCommunication
 {
 
-	/**
-	 * @param dateD
-	 */
-	protected AbstractCommMessage(Data dateD)
-	{
-		super(dateD);
+	protected AbstractCommMessage(AbonneOperateur emetteur,
+			AbonneOperateur recepteur, Date dateD) {
+		super(emetteur, recepteur, dateD);
 	}
+
 
 }
 

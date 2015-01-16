@@ -4,7 +4,8 @@
  */
 package messagerie;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
+
 
 /**
  * @author qfdk
@@ -12,11 +13,26 @@ import javax.xml.crypto.Data;
  */
 public abstract class AbstractCommunication
 {
-	protected Data debutComm;
+	protected Date debutComm;
+	protected NumeroTelephone appele,appelant;
 	
-	protected AbstractCommunication(Data dateD)
+	protected AbstractCommunication(AbonneOperateur emetteur, AbonneOperateur recepteur, Date dateD)
 	{
+		this.appele=recepteur.getNumeroTel();
+		this.appelant=emetteur.getNumeroTel();
 		this.debutComm=dateD;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder();
+		sb.append(appele.getNum()).
+		append("--").append(debutComm);
+		return sb.toString();
 	}
 }
 

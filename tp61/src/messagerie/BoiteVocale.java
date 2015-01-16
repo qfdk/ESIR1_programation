@@ -49,10 +49,6 @@ public class BoiteVocale
 		this.listMessageVocals = listMessageVocals;
 	}
 	
-	public void ajouterMessageVocal(MessageVocal mv)
-	{
-		listMessageVocals.add(mv);
-	}
 }
 
 /*______________________________*/

@@ -1,9 +1,13 @@
 package messagerie;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 
 import forfait.AbsForfait;
 import forfait.Forfait1H;
@@ -17,10 +21,10 @@ public class Operateur
 {
 	private String nom;
 	private List<AbonneOperateur> abonnes;
-	private List<AbsForfait> listForfait;
 	private List<NumeroTelephone> listNum;
-	private List<AbstractCommunication> historique;
-	private List<Appel> appelsEnCours;
+	private Map<AbonneOperateur, List<AbstractCommunication>> historique;
+	private Map<AbonneOperateur, Appel> appelsEnCours;
+	private Appel tmpAppel;
 
 	/**
 	 * @param string
@@ -28,12 +32,11 @@ public class Operateur
 	public Operateur(String string)
 	{
 		setNom(string);
-		abonnes = new ArrayList<AbonneOperateur>();
-		listForfait = new ArrayList<AbsForfait>();
-		listNum = new ArrayList<NumeroTelephone>();
-
-		setHistorique(new ArrayList<AbstractCommunication>());
-		setAppelsEnCours(new ArrayList<Appel>());
+		this.abonnes = new ArrayList<AbonneOperateur>();
+		new ArrayList<AbsForfait>();
+		this.listNum = new ArrayList<NumeroTelephone>();
+		this.historique=new HashMap<AbonneOperateur, List<AbstractCommunication>>();
+		this.appelsEnCours=new HashMap<AbonneOperateur, Appel>();
 		fabriqueNum(100);
 	}
 
@@ -49,8 +52,8 @@ public class Operateur
 		setNom(nom);
 		this.listNum = listNum;
 		this.abonnes = listClient;
-		setHistorique(new ArrayList<AbstractCommunication>());
-		setAppelsEnCours(new ArrayList<Appel>());
+		this.historique=new HashMap<AbonneOperateur, List<AbstractCommunication>>();
+		this.appelsEnCours=new HashMap<AbonneOperateur, Appel>();
 	}
 
 	/**
@@ -66,6 +69,9 @@ public class Operateur
 
 	/**
 	 * Une personne souscrit un abonnement et reçoit un téléphone
+	 * @param nomPersonne 
+	 * @param nomForfait 
+	 * @return  un telephone
 	 */
 	public Telephone souscrire(String nomPersonne, String nomForfait)
 	{
@@ -88,6 +94,10 @@ public class Operateur
 		return telephone;
 	}
 
+	/**
+	 * get nb abonnes
+	 * @return nb de client
+	 */
 	public int getNbClient()
 	{
 		return abonnes.size();
@@ -102,25 +112,32 @@ public class Operateur
 	 * @param dateAppel
 	 * @return vrai si la communication a été établie
 	 */
-	@SuppressWarnings("static-method")
 	public boolean etablirCommunication(AbonneOperateur emetteur,
 			String numeroDestinataire, String msgVocal, Date dateAppel)
 	{
 		int positon =rechercherNumero(numeroDestinataire);
+		Scanner scanner=new Scanner(System.in);
 		if(positon!=-1&&positon<getNbClient())
 		{
 			AbonneOperateur recepteur=abonnes.get(positon);
-			if(recepteur.estLibre())
+			historique.put(emetteur, new ArrayList<AbstractCommunication>());
+			if(recepteur.estLibre()&&recepteur.accepterAppel(emetteur.getNumeroTel().getNum()))
 			{
-				recepteur.accepterAppel(emetteur.getNumeroTel().getNum());
-				System.out.println("appler");
+				tmpAppel=new Appel(emetteur, recepteur, dateAppel);
+				historique.get(emetteur).add(tmpAppel);
+				appelsEnCours.put(emetteur, tmpAppel);
+				return true;
 			}
 			else {
-				
+				System.out.println("recepteur non libre, il faut envoyer SMS");
+				posterMessageVocal(emetteur, numeroDestinataire, msgVocal, dateAppel);
+				posterSMS(emetteur, numeroDestinataire, "Vous avez recu un MessageVocal", dateAppel);
+				return false;
 			}
 		}
 		return false;
 	}
+	
 	private int rechercherNumero(String num)
 	{
 		int position=0;
@@ -143,23 +160,56 @@ public class Operateur
 	 * @param emetteur
 	 * @param numeroDestinataire
 	 * @param sms : le texte du SMS
-	 * @pamra dateEnvoi
+	 * @param dateEnvoi 
 	 */
 	public void posterSMS(AbonneOperateur emetteur, String numeroDestinataire,
 			String sms, Date dateEnvoi)
 	{
-		// TODO
+		int position=rechercherNumero(numeroDestinataire);
+		if(position<0||position>getNbClient())
+		{
+			return ;
+		}
+		CommSMS tmp=new CommSMS(emetteur, abonnes.get(position), dateEnvoi);
+		historique.get(emetteur).add(tmp);
+		abonnes.get(position).getBoiteSMS().ajouterSMS(new MessageSMS(tmp,sms));
 	}
 
+	/**
+	 * poster un message vocal
+	 * 
+	 * @param emetteur
+	 * @param numeroDestinataire
+	 * @param mv : message vocal
+	 * @param dateEnvoi 
+	 */
+	public void posterMessageVocal(AbonneOperateur emetteur, String numeroDestinataire,
+			String mv, Date dateEnvoi)
+	{
+		int position=rechercherNumero(numeroDestinataire);
+		if(position<0||position>getNbClient())
+		{
+			return ;
+		}
+		CommMessageVocal tmp=new CommMessageVocal(emetteur, abonnes.get(position), dateEnvoi);
+		historique.get(emetteur).add(tmp);
+		abonnes.get(position).getBoiteVocale().ajouterMessageVocal(new MessageVocal(tmp,mv));
+		
+	}
 	/**
 	 * un abonné met fin à une communication
 	 * 
 	 * @param abonne : celui qui clôt
-	 * @param date de fin de communication
+	 * @param fin date de fin de communication
 	 */
 	public void cloreAppel(AbonneOperateur abonne, Date fin)
 	{
-		// TODO
+		AbstractCommunication abs=historique.get(abonne).get(historique.get(abonne).size()-1);
+		if(abs instanceof Appel)
+		{
+			((Appel) abs).setDateCom(fin);
+			appelsEnCours.remove(abonne);
+		}
 	}
 
 	/**
@@ -176,11 +226,13 @@ public class Operateur
 	}
 
 	/**
-	 * @param nom du forfait
+	 *  cree un forfait par rapport au nom de forfait
+	 *  par defaut c'est 1h
+	 * @param nom d'un forfait
 	 * @return un forfait
+	 * 
 	 */
-	@SuppressWarnings("static-method")
-	public AbsForfait proposeUnForfait(String nom)
+	public static  AbsForfait proposeUnForfait(String nom)
 	{
 		switch (nom)
 		{
@@ -191,7 +243,7 @@ public class Operateur
 		case "ForfaitIllimite":
 			return new ForfaitIllimite();
 		}
-		return null;
+	return new Forfait1H();
 	}
 
 	/**
@@ -214,10 +266,6 @@ public class Operateur
 		this.nom = nom;
 	}
 
-	public void ajouterUnForfait(String nom)
-	{
-		listForfait.add(new Forfait1H());
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -232,43 +280,84 @@ public class Operateur
 		return sb.toString();
 	}
 
-	/**
-	 * Pour obtenir la valeur de historique
-	 * 
-	 * @return la valeur de historique
-	 */
-	public List<AbstractCommunication> getHistorique()
-	{
-		return historique;
-	}
-
-	/**
-	 * Pour modifier la valeur de historique
-	 * 
-	 * @param historique la nouvelle valeur de historique
-	 */
-	public void setHistorique(List<AbstractCommunication> historique)
-	{
-		this.historique = historique;
-	}
 
 	/**
 	 * Pour obtenir la valeur de appelsEnCours
 	 * 
 	 * @return la valeur de appelsEnCours
 	 */
-	public List<Appel> getAppelsEnCours()
+	public Collection<List<AbstractCommunication>> getAppelsEnCours()
 	{
-		return appelsEnCours;
+		return historique.values();
+	}
+	
+	/**
+	 * test si je suis en cours ...
+	 * @param moi
+	 * @return est en cours de com
+	 */
+	public boolean estApplesEnCours(AbonneOperateur moi)
+	{
+		Collection<Appel> appels=appelsEnCours.values();
+		for(Appel a:appels)
+		{
+			if(a.getEmeteur().equals(moi)||a.getRecepteur().equals(moi))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
-	 * Pour modifier la valeur de appelsEnCours
-	 * 
-	 * @param appelsEnCours la nouvelle valeur de appelsEnCours
+	 * facture pour tous abs
 	 */
-	public void setAppelsEnCours(List<Appel> appelsEnCours)
+	public void facturation()
 	{
-		this.appelsEnCours = appelsEnCours;
+		for (AbonneOperateur a:abonnes)
+		{
+			System.out.println("-----FAC de "+a.getNom()+"------");
+			List<AbstractCommunication> maListe=historique.get(a);
+			if(maListe!=null)
+			{
+				for(AbstractCommunication abs:maListe)
+				{
+					if(abs instanceof Appel){
+						System.out.println(abs);
+					}
+					if(abs instanceof CommSMS){
+						System.out.println(abs);
+					}
+					if(abs instanceof CommMessageVocal){
+						System.out.println(abs);
+					}
+				}
+				System.out.println("Total: "+a.getForfait());
+			}else{
+				System.out.println("-> PAS DE FACTURE");
+			}
+		}
 	}
+	
+	/**
+	 * facturation pour un ab
+	 * @param nom nom ab
+	 */
+	public void facturation(AbonneOperateur nom)
+	{
+			for(AbstractCommunication abs:historique.get(nom))
+			{
+				if(abs instanceof Appel){
+					System.out.println(abs);
+				}
+				if(abs instanceof CommSMS){
+					System.out.println(abs);
+				}
+				if(abs instanceof CommMessageVocal){
+					System.out.println(abs);
+				}
+			}
+	}
+	
+	
 } // Operateur

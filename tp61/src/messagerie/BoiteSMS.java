@@ -48,14 +48,6 @@ public class BoiteSMS
 		this.listmeSms = listmeSms;
 	}
 	
-	public void ajouterSMS(MessageSMS sms)
-	{
-		listmeSms.add(sms);
-	}
-	public void supprimerSMS()
-	{
-		listmeSms.clear();
-	}
 }
 
 /*______________________________*/

@@ -4,18 +4,23 @@
  */
 package messagerie;
 
+import javax.xml.crypto.Data;
+
 /**
  * @author qfdk
  * Cree le 2015年1月13日
  */
-public abstract class AbstractMessage
+public class CommMessageVocal extends AbstractCommMessage
 {
-	protected AbstractCommMessage commMessage;
-	protected AbstractMessage(AbstractCommMessage com)
+
+	/**
+	 * @param dateD
+	 */
+	protected CommMessageVocal(Data dateD)
 	{
-		commMessage=com;
+		super(dateD);
 	}
-	
+
 }
 
 /*______________________________*/

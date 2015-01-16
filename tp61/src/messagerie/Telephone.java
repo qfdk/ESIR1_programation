@@ -8,7 +8,8 @@ import java.util.Date;
 
 public class Telephone implements GestionCommunication
 {
-	private boolean estEteind;
+	@SuppressWarnings("unused")
+	private boolean status;
 	private AbonneOperateur abonne;
 	private BoiteSMS boiteSMS;
   /**
@@ -17,25 +18,25 @@ public class Telephone implements GestionCommunication
 	 */
 	public Telephone( )
 	{
-		setEteind(true);
-		boiteSMS=new BoiteSMS();
+		status=false;
 	}
-	
-
-
-
+	public boolean getStatus()
+	{
+		return this.status;
+	}
 //------------------------------------------------------------------------
   // méthodes de l'interface GestionCommunication
   //------------------------------------------------------------------------
   @Override
   public boolean appeler(String numero, String msgVocalSiOccupe, Date dateDebut)
   {
-	 return abonne.appeler(numero, msgVocalSiOccupe, dateDebut);
+    System.out.println(numero+"-->"+dateDebut);    
+    return false;
   }
   @Override
   public void envoyerSMS(String numero, String sms, Date dateSMS)
   {
-     abonne.envoyerSMS(numero, sms, dateSMS);
+    // TODO
   }
   @Override
   public void recevoirSMS(MessageSMS message)
@@ -51,7 +52,7 @@ public class Telephone implements GestionCommunication
   @Override
   public void cloreAppel(Date fin)
   {
-	  abonne.cloreAppel(fin);
+    // TODO
   }
 
   //------------------------------------------------------------------------
@@ -62,15 +63,13 @@ public class Telephone implements GestionCommunication
  * 
  */
 public void allumer() {
-    setEteind(false);
-    abonne.setStatTel(true);
+    status=true;
     }
   /**
  * 
  */
 public void eteindre() {
-	 setEteind(true);
-	 abonne.setStatTel(false);
+	 status=false;
   }
 
 
@@ -117,30 +116,6 @@ public BoiteSMS getBoiteSMS()
 public void setBoiteSMS(BoiteSMS boiteSMS)
 {
 	this.boiteSMS = boiteSMS;
-}
-
-
-
-
-/**
- * Pour obtenir  la valeur de estEteind
- * @return la valeur de estEteind
- */
-public boolean isEteind()
-{
-	return estEteind;
-}
-
-
-
-
-/**
- * Pour modifier la valeur de estEteind
- * @param estEteind la nouvelle valeur de estEteind
- */
-public void setEteind(boolean estEteind)
-{
-	this.estEteind = estEteind;
 }
 
 } // Telephone

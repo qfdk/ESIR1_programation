@@ -26,32 +26,13 @@ public class ForfaitAlActe extends AbsForfait
 	{
 		this("ForfaitAlActe");
 	}
-
 	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixSMS()
+	 * @see forfait.AbsForfait#calculerPrix()
 	 */
 	@Override
-	public float getPrixSMS()
+	public float calculerPrix()
 	{
-		return (float) 0.07;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixAppel()
-	 */
-	@Override
-	public float getPrixAppel()
-	{
-		return (float) 0.15;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#estHorsforfait()
-	 */
-	@Override
-	public boolean estHorsforfait()
-	{
-		return false;
+		return 0;
 	}
 
 }

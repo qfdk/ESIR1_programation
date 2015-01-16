@@ -52,9 +52,7 @@ public abstract class AbsForfait
 	 * la methode pour calculer le prix
 	 * @return le prix
 	 */
-	public abstract float getPrixSMS();
-	public abstract float getPrixAppel();
-	public abstract boolean estHorsforfait();
+	public abstract float calculerPrix();
 }
 
 /*______________________________*/

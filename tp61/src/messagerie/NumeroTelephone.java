@@ -57,10 +57,9 @@ public class NumeroTelephone
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
-		sb.append(getNum());
-//		sb.append(abonne.getNom())
-//		.append("(").append(getNum()).append("),")
-//		.append("(").append(abonne.getForfait()).append(")");
+		sb.append(abonne.getNom())
+		.append("(").append(getNum()).append("),")
+		.append("(").append(abonne.getForfait()).append(")");
 		return sb.toString();
 	}
 }

@@ -15,7 +15,6 @@ public abstract class AbstractMessage
 	{
 		commMessage=com;
 	}
-	
 }
 
 /*______________________________*/

@@ -5,8 +5,12 @@
 package simulation;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import javax.swing.plaf.SliderUI;
 
 import messagerie.AbonneOperateur;
+import messagerie.MessageSMS;
 import messagerie.NumeroTelephone;
 import messagerie.Operateur;
 
@@ -19,8 +23,9 @@ public class coucou
 
 	/**
 	 * @param args
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 
 		ArrayList <AbonneOperateur> listeAb= new ArrayList <AbonneOperateur> ();
@@ -41,13 +46,37 @@ public class coucou
 				"Claude", // 8
 		};
         // add some subscribers to the list for the operator
-        for (int i=0; i<3;i++){
+        for (int i=0; i<2;i++){
                 Vous.souscrire(noms[i], "Forfait1H");
         }// create 10 subscriber having the "A l'acte" package
         
-        for(AbonneOperateur a: Vous.getListAbonnes())
+//        for(AbonneOperateur a: Vous.getListAbonnes())
+//        {
+//        	System.out.println(a);
+//        	Vous.getListAbonnes().get(0).getTelephone().allumer();
+//        	System.out.println("Hors ligne->"+Vous.getListAbonnes().get(0).estHorsLigne());
+//        	System.out.println("est libre->"+Vous.getListAbonnes().get(0).estLibre());
+//        	System.out.println(a.appeler(Vous.getListAbonnes().get(1).getNumeroTel().getNum(), "zzz", new Date()));
+//        	
+//        	System.out.println("----");
+//        }
+        AbonneOperateur a=Vous.getListAbonnes().get(0);
+        AbonneOperateur b=Vous.getListAbonnes().get(1);
+    	System.out.println(a);
+    	a.getTelephone().allumer();
+    	b.getTelephone().allumer();
+    	System.out.println(a.appeler(b.getNumeroTel().getNum(), "zzz", new Date()));
+    	Thread.sleep(3000);
+    	a.cloreAppel(new Date());
+    	a.envoyerSMS(b.getNumeroTel().getNum(), "coucou", new Date());
+    	System.out.println("----");
+//        Vous.facturation(a);
+        Vous.facturation(a);
+        b.synchroniser();
+    	System.out.println("----");
+        for(MessageSMS s:b.getBoiteSMS().getListmeSms())
         {
-        	System.out.println(a);
+        	System.out.println(s);
         }
 	}
 

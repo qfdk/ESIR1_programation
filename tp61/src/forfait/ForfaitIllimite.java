@@ -10,8 +10,6 @@ package forfait;
 public class ForfaitIllimite extends AbsForfait
 {
 
-	public static final float PRIX_BASE=40;
-	
 	/**
 	 * consturcteur
 	 * @param nom ilimite
@@ -29,32 +27,16 @@ public class ForfaitIllimite extends AbsForfait
 		this("ForfaitIllimite");
 	}
 
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixSMS()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see forfait.AbsForfait#calculerPrix()
 	 */
 	@Override
-	public float getPrixSMS()
+	public float calculerPrix()
 	{
+		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#getPrixAppel()
-	 */
-	@Override
-	public float getPrixAppel()
-	{
-		return 0;
-	}
-
-	/* (non-Javadoc)
-	 * @see forfait.AbsForfait#estHorsforfait()
-	 */
-	@Override
-	public boolean estHorsforfait()
-	{
-		return false;
 	}
 
 }

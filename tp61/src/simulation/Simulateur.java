@@ -11,7 +11,7 @@ import messagerie.Telephone;
 public class Simulateur
 {
 	@SuppressWarnings("deprecation")
-	public static void main(String[] args) throws InterruptedException
+	public static void main(String[] args)
 	{
 		// les noms
 		String[] noms =
@@ -26,7 +26,7 @@ public class Simulateur
 		};
 
 		String[] lesForfaits =
-		{ "Forfait1H", "ForfaitAlActe", "ForfaitIllimite", };
+		{ "illimite", "1h", "acte", };
 		
 		// SDD pour mémoriser les téléphones
 		Map<String, Telephone> lesTelephones = new TreeMap<String, Telephone>();
@@ -53,39 +53,28 @@ public class Simulateur
 			}
 		}
 		afficher("État initial", breizhtel);
+
 		// ------------------------------------------------------------------------
 		// À COMPLÉTER
 		// ------------------------------------------------------------------------
 		lesTelephones.get("Samuel").allumer();
-		lesTelephones.get("Bastien").allumer();
-		
-		lesTelephones.get("Samuel").appeler(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-				"Où c'est qu't'es ?", new Date());
-		Thread.sleep(3000);
-		lesTelephones.get("Samuel").cloreAppel(new Date());
-//		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-//				"Léa, réponds, nom d'une pipe !",
-//				new Date(2012, 12, 13, 15, 45, 10));
-//		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-//				"Léa, alleeez, sois pas vache !",
-//				new Date(2012, 12, 13, 15, 46, 0));
-//		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-//				"Léa, je plaisantais !!!!!!!!!!",
-//				new Date(2012, 12, 13, 15, 46, 10));
+		lesTelephones.get("Samuel").appeler("+33(0)700000004",
+				"Où c'est qu't'es ?", new Date(2012, 12, 13, 15, 45, 10));
+		lesTelephones.get("Samuel").envoyerSMS("+33(0)700000004",
+				"Léa, réponds, nom d'une pipe !",
+				new Date(2012, 12, 13, 15, 45, 10));
+		lesTelephones.get("Samuel").envoyerSMS("+33(0)700000004",
+				"Léa, alleeez, sois pas vache !",
+				new Date(2012, 12, 13, 15, 46, 0));
+		lesTelephones.get("Samuel").envoyerSMS("+33(0)700000004",
+				"Léa, je plaisantais !!!!!!!!!!",
+				new Date(2012, 12, 13, 15, 46, 10));
 		lesTelephones.get("Léa").allumer();
-		System.out.println("\nÉtat de Léa: " + lesTelephones.get("Samuel"));
-		lesTelephones.get("Bastien").appeler(lesTelephones.get("Samuel").getAbonne().getNumeroTel().getNum(),
-				"Où c'est qu't'es ?", new Date());
-		
-		Thread.sleep(4000);
-		lesTelephones.get("Bastien").cloreAppel(new Date());
-		
-		
+		System.out.println("\nÉtat de Léa: " + lesTelephones.get("Léa"));
+		lesTelephones.get("Samuel").appeler("+33(0)700000004",
+				"Où c'est qu't'es ?", new Date(2012, 12, 13, 15, 47, 5));
 		afficher("État 1", breizhtel);
-//		breizhtel.facturation(lesTelephones.get("Samuel").getAbonne());
-//		System.out.println("0000000000");
-		breizhtel.facturation();
-		
+
 		// ------------------------------------------------------------------------
 		// FACTURATION : À FAIRE
 		// ------------------------------------------------------------------------
