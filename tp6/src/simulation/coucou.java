@@ -7,10 +7,9 @@ package simulation;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.plaf.SliderUI;
-
 import messagerie.AbonneOperateur;
 import messagerie.MessageSMS;
+import messagerie.MessageVocal;
 import messagerie.NumeroTelephone;
 import messagerie.Operateur;
 
@@ -25,10 +24,11 @@ public class coucou
 	 * @param args
 	 * @throws InterruptedException 
 	 */
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException
 	{
 
-		ArrayList <AbonneOperateur> listeAb= new ArrayList <AbonneOperateur> ();
+		//ArrayList <AbonneOperateur> listeAb= new ArrayList <AbonneOperateur> ();
         ArrayList <NumeroTelephone> listeNum=new ArrayList <NumeroTelephone> ();
         listeNum.add(new NumeroTelephone("123"));
         listeNum.add(new NumeroTelephone("345"));
@@ -50,32 +50,27 @@ public class coucou
                 Vous.souscrire(noms[i], "Forfait1H");
         }// create 10 subscriber having the "A l'acte" package
         
-//        for(AbonneOperateur a: Vous.getListAbonnes())
-//        {
-//        	System.out.println(a);
-//        	Vous.getListAbonnes().get(0).getTelephone().allumer();
-//        	System.out.println("Hors ligne->"+Vous.getListAbonnes().get(0).estHorsLigne());
-//        	System.out.println("est libre->"+Vous.getListAbonnes().get(0).estLibre());
-//        	System.out.println(a.appeler(Vous.getListAbonnes().get(1).getNumeroTel().getNum(), "zzz", new Date()));
-//        	
-//        	System.out.println("----");
-//        }
         AbonneOperateur a=Vous.getListAbonnes().get(0);
         AbonneOperateur b=Vous.getListAbonnes().get(1);
     	System.out.println(a);
     	a.getTelephone().allumer();
     	b.getTelephone().allumer();
-    	a.appeler(b.getNumeroTel().getNum(), "zzz", new Date());
-    	Thread.sleep(3000);
-    	a.cloreAppel(new Date(115, 0, 16,22,0));
+    	a.appeler(b.getNumeroTel().getNum(), "zzz", new Date(2015,1,16,20,3));
+//    	Thread.sleep(3000);
+    	a.cloreAppel(new Date(2015, 1, 16,22,0));
     	a.envoyerSMS(b.getNumeroTel().getNum(), "coucou", new Date());
     	System.out.println("----");
         Vous.facturation(a);
-        Vous.facturation(b);
+//        Vous.facturation(b);
         
         b.synchroniser();
     	System.out.println("----");
         for(MessageSMS s:b.getBoiteSMS().getListmeSms())
+        {
+        	System.out.println(s);
+        }
+    	System.out.println("----");
+        for(MessageVocal s:b.getBoiteVocale().getListMessageVocals())
         {
         	System.out.println(s);
         }

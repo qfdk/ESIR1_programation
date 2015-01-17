@@ -45,8 +45,7 @@ public class Simulateur
 			{
 				Telephone newtel = breizhtel.souscrire(noms[i],
 						lesForfaits[generateurAleatoire
-								.nextInt(lesForfaits.length)]);
-				
+								.nextInt(lesForfaits.length)]);			
 				lesTelephones.put(noms[i], newtel);
 			} catch (Exception e)
 			{
@@ -58,42 +57,35 @@ public class Simulateur
 		// ------------------------------------------------------------------------
 		// À COMPLÉTER
 		// ------------------------------------------------------------------------
-		afficher("Allumer les tels", "Samuel,Bastien,Lea");
+		afficher("Allumer les tels", "Samuel,Bastien lea n'est pas dispo");
 		lesTelephones.get("Samuel").allumer();
 		lesTelephones.get("Bastien").allumer();
-		lesTelephones.get("Léa").allumer();
-		afficher("Appel les autre", "Samuel->Bastien");
-		lesTelephones.get("Samuel").appeler(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-				"Où c'est qu't'es ?", new Date());
-		Thread.sleep(2000);
-		afficher("Appel les autre", "Samuel clore l'apple ");
-		lesTelephones.get("Samuel").cloreAppel(new Date());
+//		lesTelephones.get("Léa").allumer();
 		
-		System.out.println("---");
-		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-				"Léa, réponds, nom d'une pipe !",
-				new Date(2012, 12, 13, 15, 45, 10));
-		lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(),
-				"Léa, alleeez, sois pas vache !",
-				new Date(2012, 12, 13, 15, 46, 0));
-		lesTelephones.get("Léa").envoyerSMS(lesTelephones.get("Bastien").getAbonne().getNumeroTel().getNum(),
-				"Léa, je plaisantais !!!!!!!!!!",
-				new Date(2012, 12, 13, 15, 46, 10));
-		lesTelephones.get("Léa").appeler(lesTelephones.get("Samuel").getAbonne().getNumeroTel().getNum(),
-				"Où c'est qu't'es ?", new Date());
-		
-		lesTelephones.get("Léa").cloreAppel(new Date());
-		
-		
+	    lesTelephones.get("Samuel").appeler(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(), "Où c'est qu't'es ?", new Date(2012, 12, 13, 15, 45, 10));
+	    lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(), "Léa, réponds, nom d'une pipe !", new Date(2012, 12, 13, 15, 45, 10));
+	    lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(), "Léa, alleeez, sois pas vache !", new Date(2012, 12, 13, 15, 46, 0));
+	    lesTelephones.get("Samuel").envoyerSMS(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(), "Léa, je plaisantais !!!!!!!!!!", new Date(2012, 12, 13, 15, 46, 10));
+	    afficher("test lea est dispo", "allumer tel de Lea");
+	    lesTelephones.get("Léa").allumer();
+	    afficher("test accpte un apple", "tapyez 'o/y' pour accpte");
+	    lesTelephones.get("Samuel").appeler(lesTelephones.get("Léa").getAbonne().getNumeroTel().getNum(), "Où c'est qu't'es ?", new Date(2012, 12, 13, 15, 47, 5));
+	    afficher("test appel en cours", "2s Samuel va clorer cet appel");
+	   Thread.sleep(2000);
+	    lesTelephones.get("Samuel").cloreAppel(new Date(2012, 12, 13, 16, 50, 5));
 		// ------------------------------------------------------------------------
 		// FACTURATION : À FAIRE
 		// ------------------------------------------------------------------------
-
-//		breizhtel.facturation(lesTelephones.get("Samuel").getAbonne());
+	    //pour un client
+	    afficher("test facturation pour une personne", "Samuel");
+		breizhtel.facturation(lesTelephones.get("Samuel").getAbonne());
+		//pour tous les modes
+		afficher("test facturation pour tous", "tous les abonnes");
 		breizhtel.facturation();
-		afficher("consulter le sms", "Syc Bastien");
-		lesTelephones.get("Bastien").getAbonne().synchroniser();
-		lesTelephones.get("Bastien").getAbonne().getBoiteSMS().lireSMS();
+		
+		afficher("consulter les sms de Léa", "Syc Léa");
+		lesTelephones.get("Léa").getAbonne().synchroniser();
+		lesTelephones.get("Léa").getAbonne().getBoiteSMS().lireSMS();
 		
 	}
 

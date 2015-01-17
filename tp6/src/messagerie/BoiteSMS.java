@@ -50,16 +50,26 @@ public class BoiteSMS
 		this.listmeSms = listmeSms;
 	}
 
+	/**
+	 * ajouter d'un message
+	 * @param sms un message
+	 */
 	public void ajouterSMS(MessageSMS sms)
 	{
 		listmeSms.add(sms);
 	}
 
+	/**
+	 * supprimer tous sms
+	 */
 	public void supprimerSMS()
 	{
 		listmeSms.clear();
 	}
 
+	/**
+	 * affichier tous les messages
+	 */
 	public void lireSMS()
 	{
 		for (MessageSMS m : listmeSms)

@@ -6,8 +6,6 @@ package messagerie;
 
 import java.util.Date;
 
-import javax.xml.crypto.Data;
-
 /**
  * @author qfdk
  * Cree le 2015年1月13日

@@ -10,6 +10,9 @@ package forfait;
 public class ForfaitIllimite extends AbsForfait
 {
 
+	/**
+	 * prix de base
+	 */
 	public static final float PRIX_BASE=40;
 	
 	/**

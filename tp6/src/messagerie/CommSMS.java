@@ -17,9 +17,11 @@ public class CommSMS extends AbstractCommMessage
 {
 
 	/**
+	 * @param eme 
+	 * @param rec 
 	 * @param dateD
 	 */
-	protected CommSMS(AbonneOperateur eme, AbonneOperateur rec,Date dateD)
+	public CommSMS(AbonneOperateur eme, AbonneOperateur rec,Date dateD)
 	{
 		super(eme,rec,dateD);
 	}
@@ -33,6 +35,13 @@ public class CommSMS extends AbstractCommMessage
 		.append("SMS").append("--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")");
+		if(forfait.getNom().equals("ForfaitIllimite"))
+		{
+			sb.append("-- inclus");
+		}else
+		{
+			sb.append("-- 0.07");
+		}
 		return sb.toString();
 	}
 }

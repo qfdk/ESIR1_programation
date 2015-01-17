@@ -7,6 +7,8 @@ package messagerie;
 import java.text.DateFormat;
 import java.util.Date;
 
+import forfait.ForfaitAlActe;
+
 /**
  * @author qfdk
  * Cree le 2015年1月8日
@@ -78,12 +80,11 @@ public class Appel extends AbstractCommunication
 	}
 	
 	/**
-	 * @return
+	 * @return la duree de comm
 	 */
-	@SuppressWarnings("deprecation")
 	public int getDuree()
 	{
-		return finComm.getSeconds()-debutComm.getSeconds();
+		return (int) ((finComm.getTime()-debutComm.getTime())/1000);
 	}
 	/* (non-Javadoc)
 	 * @see messagerie.AbstractCommunication#toString()
@@ -92,10 +93,29 @@ public class Appel extends AbstractCommunication
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
+		
+		float durreTotal=getEmeteur().getOperateur().getDureeTotal(getEmeteur());
+		
 		sb.append(appele.getNum()).append("--")
 		.append("APL").append("--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
 		.append(DateFormat.getDateTimeInstance().format(finComm)).append(")");
+		
+		if(emeteur.getForfait().getNom().equals("ForfaitIllimite"))
+		{
+			sb.append("-- inclus");
+		}
+		if(emeteur.getForfait().getNom().equals("ForfaitAlActe"))
+		{
+			sb.append("-- ").append(durreTotal*ForfaitAlActe.PRIX_APPEL);
+		}
+		if(emeteur.getForfait().getNom().equals("Forfait1H"))
+		{
+			if(durreTotal<60)
+				sb.append("-- inclus");
+			else
+				sb.append("-- ").append(String.format("%.2f",(durreTotal-60)*ForfaitAlActe.PRIX_APPEL));
+		}
 		return sb.toString();
 	}
 }

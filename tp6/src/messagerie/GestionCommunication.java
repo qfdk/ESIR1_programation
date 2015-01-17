@@ -7,11 +7,32 @@ import java.util.Date;
 public interface GestionCommunication
 {
   // opérations effectuées par le téléphone appelant
-  public boolean appeler   (String numero, String msgVocalSiOccupe, Date dateDebut);
-  public void    envoyerSMS(String numero, String sms, Date dateSMS);
+  /**
+ * @param numero
+ * @param msgVocalSiOccupe
+ * @param dateDebut
+ * @return si bien reusse
+ */
+public boolean appeler   (String numero, String msgVocalSiOccupe, Date dateDebut);
+  /**
+ * @param numero
+ * @param sms
+ * @param dateSMS
+ */
+public void    envoyerSMS(String numero, String sms, Date dateSMS);
   // opérations effectuées par le téléphone appelé
-  public boolean accepterAppel(String numeroAppelant);
-  public void    recevoirSMS  (MessageSMS message);
+  /**
+ * @param numeroAppelant
+ * @return si bien accepte
+ */
+public boolean accepterAppel(String numeroAppelant);
+  /**
+ * @param message
+ */
+public void    recevoirSMS  (MessageSMS message);
   // opération effectuée indiféremment par l'appelant ou l'appelé
-  public void    cloreAppel(Date fin);
+  /**
+ * @param fin
+ */
+public void    cloreAppel(Date fin);
 } // GestionCommunication

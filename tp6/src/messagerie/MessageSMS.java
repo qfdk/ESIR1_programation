@@ -58,7 +58,7 @@ public class MessageSMS extends AbstractMessage
 	{
 		StringBuilder sb =new StringBuilder();
 		sb.append(commMessage.appelant)
-		.append(" (").append(DateFormat.getDateTimeInstance().format(commMessage.debutComm)).append(") ")
+		.append("[SMS] -->(").append(DateFormat.getDateTimeInstance().format(commMessage.debutComm)).append(") ")
 		.append(" : ")
 		.append(getSms());
 		return sb.toString();

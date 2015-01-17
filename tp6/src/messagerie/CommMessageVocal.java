@@ -16,7 +16,12 @@ import forfait.AbsForfait;
 public class CommMessageVocal extends AbstractCommMessage
 {
 
-	protected CommMessageVocal(AbonneOperateur emetteur,
+	/**
+	 * @param emetteur
+	 * @param recepteur
+	 * @param dateD
+	 */
+	public CommMessageVocal(AbonneOperateur emetteur,
 			AbonneOperateur recepteur, Date dateD) {
 		super(emetteur, recepteur, dateD);
 	}
@@ -29,6 +34,13 @@ public class CommMessageVocal extends AbstractCommMessage
 		.append("VOC").append("--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")--(")
 		.append(DateFormat.getDateTimeInstance().format(debutComm)).append(")");
+		if(forfait.getNom().equals("ForfaitIllimite"))
+		{
+			sb.append("-- inclus");
+		}else
+		{
+			sb.append("-- 0.07");
+		}
 		return sb.toString();
 	}
 }

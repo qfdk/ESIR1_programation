@@ -4,6 +4,8 @@
  */
 package messagerie;
 
+import java.text.DateFormat;
+
 /**
  * @author qfdk
  * Cree le 2015年1月13日
@@ -54,8 +56,12 @@ public class MessageVocal extends AbstractMessage
 	@Override
 	public String toString()
 	{
-		// TODO Auto-generated method stub
-		return super.toString();
+		StringBuilder sb =new StringBuilder();
+		sb.append(commMessage.appelant)
+		.append("[Message Vocal] -->(").append(DateFormat.getDateTimeInstance().format(commMessage.debutComm)).append(") ")
+		.append(" : ")
+		.append(getMessage());
+		return sb.toString();
 	}
 }
 

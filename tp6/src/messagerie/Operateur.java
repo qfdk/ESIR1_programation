@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Scanner;
-
-import javax.swing.text.StyleContext.SmallAttributeSet;
 
 import forfait.AbsForfait;
 import forfait.Forfait1H;
@@ -344,29 +341,30 @@ public class Operateur
 	{
 		for (AbonneOperateur a:abonnes)
 		{
-			System.out.println("-----FAC de "+a.getNom()+"("+a.getForfait()+")------");
-			List<AbstractCommunication> maListe=historique.get(a);
-			if(maListe!=null)
-			{
-				for(AbstractCommunication abs:maListe)
-				{
-					if(abs instanceof Appel){
-						System.out.println(abs);
-					}
-					if(abs instanceof CommSMS){
-						System.out.println(abs);
-					}
-					if(abs instanceof CommMessageVocal){
-						System.out.println(abs);
-					}
-				}
-				System.out.println("Total: "+calculerPrix(a)+" EURO");
-				System.out.println("**********************************");
-			}else{
-				System.out.println("->Pas de communication histo");
-				System.out.println("Total: "+calculerPrix(a)+" EURO");
-				System.out.println("**********************************");
-			}
+			facturation(a);
+//			System.out.println("-----FAC de "+a.getNom()+"("+a.getForfait()+")------");
+//			List<AbstractCommunication> maListe=historique.get(a);
+//			if(maListe!=null)
+//			{
+//				for(AbstractCommunication abs:maListe)
+//				{
+//					if(abs instanceof Appel){
+//						System.out.println(abs);
+//					}
+//					if(abs instanceof CommSMS){
+//						System.out.println(abs);
+//					}
+//					if(abs instanceof CommMessageVocal){
+//						System.out.println(abs);
+//					}
+//				}
+//				System.out.println("Total: "+calculerPrix(a)+" EURO");
+//				System.out.println("**********************************");
+//			}else{
+//				System.out.println("->Pas de communication histo");
+//				System.out.println("Total: "+calculerPrix(a)+" EURO");
+//				System.out.println("**********************************");
+//			}
 		}
 	}
 	
@@ -381,8 +379,8 @@ public class Operateur
 			for(AbstractCommunication abs:histo)
 			{
 				if(abs instanceof Appel){
-					minAppel=minAppel+((Appel) abs).getDuree()/60;
-					System.out.println(((Appel) abs).getDuree());
+					float tmp=(float) (((Appel) abs).getDuree());
+					minAppel=minAppel+tmp;
 				}
 				if(abs instanceof CommSMS){
 					nbSMS++;
@@ -391,15 +389,25 @@ public class Operateur
 					nbMV++;
 				}
 			}
+			
 		}
-//		System.out.println(minAppel);
-		return Forfait1H.PRIX_BASE+Forfait1H.PRIX_MV*nbMV+Forfait1H.PRIX_SMS*nbSMS+minAppel%Forfait1H.F1H*Forfait1H.PRIX_APPEL;
+		if(minAppel/60-Forfait1H.F1H>0)
+		{
+			System.out.println("Appel Hors Forfait :"+(minAppel/60-Forfait1H.F1H)+" minutes");
+			return Forfait1H.PRIX_BASE
+					+Forfait1H.PRIX_MV*nbMV
+					+Forfait1H.PRIX_SMS*nbSMS
+					+((minAppel/60)-Forfait1H.F1H)*Forfait1H.PRIX_APPEL;
+		}	
+		return Forfait1H.PRIX_BASE
+				+Forfait1H.PRIX_MV*nbMV
+				+Forfait1H.PRIX_SMS*nbSMS;
 	}
 	
 	@SuppressWarnings("static-method")
 	private float getPrixForfaitAlActe(List<AbstractCommunication> histo)
 	{
-		int nbAppel=0;
+		float minAppel=0;
 		int nbSMS=0;
 		int nbMV=0;
 		if(histo!=null)
@@ -407,7 +415,8 @@ public class Operateur
 			for(AbstractCommunication abs:histo)
 			{
 				if(abs instanceof Appel){
-					nbAppel++;
+					float tmp=(float) (((Appel) abs).getDuree());
+					minAppel=minAppel+tmp;
 				}
 				if(abs instanceof CommSMS){
 					nbSMS++;
@@ -417,7 +426,7 @@ public class Operateur
 				}
 			}
 		}
-		return nbAppel*ForfaitAlActe.PRIX_APPEL+nbMV*ForfaitAlActe.PRIX_MV+nbSMS*ForfaitAlActe.PRIX_SMS;
+		return (minAppel/60)*ForfaitAlActe.PRIX_APPEL+nbMV*ForfaitAlActe.PRIX_MV+nbSMS*ForfaitAlActe.PRIX_SMS;
 	}
 	private float calculerPrix(AbonneOperateur client)
 	{
@@ -453,7 +462,29 @@ public class Operateur
 					System.out.println(abs);
 				}
 			}
-		System.out.println("Total: "+calculerPrix(client)+" EURO, "+client.getForfait());
+		System.out.println("* Total: "+String.format("%.2f",calculerPrix(client))+" EURO");
+		System.out.println("");
+	}
+
+	/**
+	 * @param client client qui utilise forfait 1h
+	 * @return la dure total de forfait 1h
+	 */
+	public float getDureeTotal(AbonneOperateur client)
+	{
+		float minAppel=0;
+		List<AbstractCommunication> histo=historique.get(client);
+		if(histo!=null)
+		{
+			for(AbstractCommunication abs:histo)
+			{
+				if(abs instanceof Appel){
+					float tmp=(float) (((Appel) abs).getDuree());
+					minAppel=minAppel+tmp;
+				}
+			}
+		}
+		return minAppel/60;
 	}
 
 	
